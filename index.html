@@ -128,16 +128,9 @@
       transform: translateX(105%);
     }
 
-    /* Hanging Floral Motif on Curtains */
     .hanging-lotus {
       font-size: 1.8rem;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
-    }
-
-    /* Royal Elephant SVG on Curtain Bottom */
-    .elephant- emblem {
-      width: 110px;
-      height: 95px;
     }
 
     /* Center White/Cream Invitation Strip */
@@ -146,8 +139,8 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 56%;
-      max-width: 235px;
+      width: 58%;
+      max-width: 245px;
       height: 100%;
       background: linear-gradient(180deg, #fffdf9 0%, #f5ebd9 100%);
       border-left: 2px solid var(--gold);
@@ -159,7 +152,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 24px 16px;
+      padding: 24px 14px;
       transition: opacity 0.65s ease, transform 0.8s ease;
     }
 
@@ -176,16 +169,17 @@
     }
 
     .strip-shloka {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--maroon);
       font-weight: 700;
+      line-height: 1.6;
       margin-bottom: 14px;
     }
 
     .strip-subtext {
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: #5a3c32;
-      line-height: 1.6;
+      line-height: 1.65;
       margin-bottom: 22px;
     }
 
@@ -209,26 +203,26 @@
       50% { transform: scale(1.05); }
     }
 
-    /* ==================== 2. HERO MANDAP ILLUSTRATION ==================== */
+    /* ==================== 2. GOLDEN LAKESIDE MANDAP HERO ==================== */
     .mandap-hero {
-      min-height: 88vh;
+      min-height: 92vh;
       background:
-        linear-gradient(180deg, rgba(215, 232, 247, 0.35) 0%, rgba(251, 246, 238, 0.1) 55%, var(--cream) 100%),
-        radial-gradient(circle at 50% 42%, #ffefc2 0%, #f5d19b 42%, #d9b88f 78%, var(--cream) 100%);
+        radial-gradient(circle at 50% 38%, #fff6d6 0%, #f7d794 38%, #dfaf67 72%, var(--cream) 100%);
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 48px 20px 30px;
+      padding: 42px 18px 28px;
       text-align: center;
       overflow: hidden;
     }
 
-    .hero-Small-mantra {
-      font-size: 0.92rem;
+    .hero-invocations {
+      font-size: 0.98rem;
       color: var(--maroon);
-      font-weight: 600;
+      font-weight: 700;
+      line-height: 1.65;
       letter-spacing: 0.5px;
     }
 
@@ -236,29 +230,46 @@
       font-family: 'Cormorant Garamond', 'Rozha One', serif;
       font-style: italic;
       font-size: 2.75rem;
-      color: #2b3945;
-      margin: 8px 0 4px;
-      text-shadow: 0 2px 10px rgba(255,255,255,0.8);
+      color: #381812;
+      margin: 6px 0 2px;
+      text-shadow: 0 2px 12px rgba(255,255,255,0.85);
     }
 
     .hero-marathi-names {
       font-family: 'Rozha One', serif;
-      font-size: 1.65rem;
+      font-size: 1.7rem;
       color: var(--maroon);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
-    /* Grand Lakeside Mandap Illustration SVG */
+    /* Golden Lakeside Mandap Scene Container */
     .mandap-scene-wrap {
       width: 100%;
-      max-width: 390px;
-      margin: 10px auto;
+      max-width: 400px;
+      margin: 6px auto 12px;
       position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(107, 20, 26, 0.18);
+      border: 2px solid rgba(212, 167, 74, 0.65);
     }
 
-    /* ==================== 3. UNROLLING ROYAL SCROLLS (शाही खलिता) ==================== */
+    .poetic-blessing-box {
+      font-size: 0.95rem;
+      color: #4a251d;
+      max-width: 95%;
+      line-height: 1.75;
+      font-weight: 600;
+      background: rgba(255, 253, 248, 0.85);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    /* ==================== 3. 3D UNROLLING ROYAL SCROLLS (शाही खलिता) ==================== */
     .scroll-section {
-      padding: 20px 16px;
+      padding: 22px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -269,70 +280,74 @@
       max-width: 385px;
       margin: 18px auto;
       position: relative;
+      perspective: 900px;
     }
 
-    /* Top & Bottom Wooden/Gold Rollers */
+    /* 3D Cylindrical Maroon & Gold Rollers */
     .scroll-roller {
       width: 100%;
-      height: 22px;
-      background: linear-gradient(180deg, #9c1d26 0%, #590c12 55%, #3a060a 100%);
-      border-top: 1.5px solid var(--gold);
-      border-bottom: 1.5px solid var(--gold);
-      border-radius: 12px;
+      height: 24px;
+      background: linear-gradient(180deg, #b5852b 0%, #f5d77f 22%, #8c1922 50%, #4a080e 85%, #9e731f 100%);
+      border-top: 1.5px solid var(--gold-bright);
+      border-bottom: 1.5px solid var(--gold-dark);
+      border-radius: 14px;
       position: relative;
       z-index: 3;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.45);
     }
 
-    /* Gold End Caps on Rollers */
+    /* 3D Gold Finials / End Caps on Rollers */
     .scroll-roller::before,
     .scroll-roller::after {
       content: "";
       position: absolute;
       top: -3px;
-      width: 18px;
-      height: 26px;
-      background: linear-gradient(90deg, #9e731f 0%, #f5d77f 50%, #aa7c20 100%);
-      border-radius: 5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      width: 20px;
+      height: 28px;
+      background: linear-gradient(90deg, #8a6014 0%, #f9e295 50%, #966918 100%);
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.5);
     }
 
-    .scroll-roller::before { left: -8px; }
-    .scroll-roller::after { right: -8px; }
+    .scroll-roller::before { left: -9px; }
+    .scroll-roller::after { right: -9px; }
 
-    /* Unrolling Body */
+    /* Unrolling Parchment Body */
     .scroll-body {
       width: 92%;
       margin: 0 auto;
-      background: radial-gradient(circle at center, #801922 0%, #520c12 100%);
+      background:
+        radial-gradient(circle at center, #861b24 0%, #520c12 100%);
       color: #fff;
-      border-left: 2px solid var(--gold);
-      border-right: 2px solid var(--gold);
+      border-left: 2.5px solid var(--gold);
+      border-right: 2.5px solid var(--gold);
       padding: 0 20px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 1.2s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.8s ease;
+      transition: max-height 1.3s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.85s ease;
       text-align: center;
-      box-shadow: inset 0 0 25px rgba(0,0,0,0.45), 0 12px 25px rgba(0,0,0,0.2);
+      box-shadow: inset 0 12px 25px rgba(0,0,0,0.55), inset 0 -12px 25px rgba(0,0,0,0.55), 0 14px 28px rgba(0,0,0,0.25);
       position: relative;
     }
 
     .royal-scroll.unrolled .scroll-body {
-      max-height: 900px;
-      padding: 28px 20px 24px;
+      max-height: 950px;
+      padding: 28px 18px 24px;
     }
 
-    /* Inner Gold Dashed Frame */
+    /* Ornate Gold Frame Inside Scroll */
     .scroll-inner-border {
-      border: 1px solid rgba(245, 215, 127, 0.45);
-      border-radius: 6px;
-      padding: 18px 14px;
+      border: 1.5px solid rgba(245, 215, 127, 0.55);
+      outline: 1px dashed rgba(245, 215, 127, 0.35);
+      outline-offset: -5px;
+      border-radius: 8px;
+      padding: 20px 14px;
     }
 
     .scroll-role-tag {
       display: inline-block;
       color: var(--gold-bright);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       letter-spacing: 1.5px;
       margin-bottom: 6px;
       font-weight: 600;
@@ -340,15 +355,15 @@
 
     .scroll-person-name {
       font-family: 'Rozha One', serif;
-      font-size: 1.85rem;
+      font-size: 1.9rem;
       color: #fff;
       margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      text-shadow: 0 2px 5px rgba(0,0,0,0.45);
     }
 
     .scroll-details {
       font-size: 0.98rem;
-      line-height: 1.75;
+      line-height: 1.8;
       color: #f7e9d7;
     }
 
@@ -489,7 +504,6 @@
       margin-bottom: 18px;
     }
 
-    /* Horizontal Scroll Clothesline Track */
     .clothesline-track {
       display: flex;
       gap: 22px;
@@ -504,7 +518,6 @@
       display: none;
     }
 
-    /* Red String Line across the top */
     .clothesline-track::before {
       content: "";
       position: absolute;
@@ -537,7 +550,6 @@
       transform: rotate(2deg);
     }
 
-    /* Hanging String Hanger Triangle */
     .hanging-frame::before {
       content: "";
       position: absolute;
@@ -589,7 +601,7 @@
       background: #fdfaf5;
       border: 1px dashed var(--gold);
       color: #4f3228;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.7;
     }
 
@@ -617,7 +629,7 @@
 
     .arch-card-title {
       font-family: 'Rozha One', serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       color: var(--maroon);
       margin: 8px 0 6px;
     }
@@ -700,7 +712,6 @@
       position: relative;
     }
 
-    /* Easel Top Crest & Bottom Legs */
     .easel-board::before {
       content: "⚜️";
       position: absolute;
@@ -754,7 +765,6 @@
       <!-- Left Curtain -->
       <div class="curtain-panel curtain-left">
         <div class="hanging-lotus">🌺🌿</div>
-        <!-- Royal Elephant Left SVG -->
         <svg width="95" height="82" viewBox="0 0 100 85">
           <path d="M25,65 L25,40 C25,22 65,22 72,40 L72,65" fill="#f5e6d3" stroke="#d4a74a" stroke-width="2"/>
           <rect x="35" y="10" width="28" height="16" fill="#9c1d26" stroke="#f5d77f" stroke-width="1.5"/>
@@ -770,7 +780,10 @@
         <svg class="ganesh-sketch" viewBox="0 0 100 100">
           <path d="M50 12 L60 28 L40 28 Z M35 32 L65 32 L60 40 L40 40 Z M50 42 C64 42 74 50 74 62 C74 72 65 78 55 78 C49 78 46 82 49 86 C52 90 59 89 62 86 C64 88 60 94 50 94 C40 94 38 85 42 78 C32 76 26 68 26 58 C26 48 36 42 50 42 Z"/>
         </svg>
-        <div class="strip-shloka">।। श्री गणेशाय नमः ।।</div>
+        <div class="strip-shloka">
+          ।। श्री गणेशाय नमः ।।<br>
+          ।। श्री राजराजेश्वर प्रसन्न ।।
+        </div>
         <p class="strip-subtext">
           वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ।।<br><br>
@@ -782,7 +795,6 @@
       <!-- Right Curtain -->
       <div class="curtain-panel curtain-right">
         <div class="hanging-lotus">🌿🌺</div>
-        <!-- Royal Elephant Right SVG -->
         <svg width="95" height="82" viewBox="0 0 100 85" style="transform: scaleX(-1);">
           <path d="M25,65 L25,40 C25,22 65,22 72,40 L72,65" fill="#f5e6d3" stroke="#d4a74a" stroke-width="2"/>
           <rect x="35" y="10" width="28" height="16" fill="#9c1d26" stroke="#f5d77f" stroke-width="1.5"/>
@@ -798,65 +810,119 @@
     <div id="yt-hidden-player"><div id="ytplayer"></div></div>
     <div class="music-btn" id="musicToggleBtn" onclick="toggleSong()" title="संगीत चालू/बंद करा">🎵</div>
 
-    <!-- ==================== 2. MANDAP HERO SECTION ==================== -->
+    <!-- ==================== 2. GOLDEN LAKESIDE MANDAP HERO SECTION ==================== -->
     <section class="mandap-hero">
       <div>
-        <div class="hero-Small-mantra">।। श्री गणेशाय नमः ।। • ।। श्री राजराजेश्वर प्रसन्न ।।</div>
+        <div class="hero-invocations">
+          ।। श्री गणेशाय नमः ।।<br>
+          ।। श्री राजराजेश्वर प्रसन्न ।।
+        </div>
         <h1 class="hero-couple-names">Priyanka &amp; Kaustubh</h1>
         <div class="hero-marathi-names">चि. सौ. कां. प्रियंका आणि चि. कौस्तुभ</div>
       </div>
 
-      <!-- Golden Lakeside Mandap SVG Illustration -->
+      <!-- Rich Golden Lakeside Mandap SVG Illustration -->
       <div class="mandap-scene-wrap">
-        <svg viewBox="0 0 380 250" width="100%">
-          <!-- Glowing Sun/Halo -->
-          <circle cx="190" cy="115" r="85" fill="rgba(255, 245, 205, 0.75)"/>
-          <!-- Side Palace Colonnades -->
-          <polygon points="0,155 85,125 85,175 0,190" fill="#e6cfa8" stroke="#c29b61"/>
-          <polygon points="380,155 295,125 295,175 380,190" fill="#e6cfa8" stroke="#c29b61"/>
-          <!-- Cypress Trees -->
-          <polygon points="35,105 24,175 46,175" fill="#3b5230"/>
-          <polygon points="70,115 62,175 78,175" fill="#48633b"/>
-          <polygon points="345,105 334,175 356,175" fill="#3b5230"/>
-          <polygon points="310,115 302,175 318,175" fill="#48633b"/>
-          <!-- Central Golden Mandap -->
-          <rect x="125" y="65" width="130" height="10" fill="#b87a28" stroke="#78470a"/>
-          <path d="M125,75 Q157,100 190,75 Q223,100 255,75" fill="none" stroke="#d95326" stroke-width="5"/>
-          <line x1="135" y1="75" x2="135" y2="170" stroke="#b87a28" stroke-width="5"/>
-          <line x1="245" y1="75" x2="245" y2="170" stroke="#b87a28" stroke-width="5"/>
-          <!-- Floral Garlands on Mandap -->
-          <path d="M135,75 Q145,125 135,165" fill="none" stroke="#e86f2c" stroke-width="4" stroke-dasharray="4 2"/>
-          <path d="M245,75 Q235,125 245,165" fill="none" stroke="#e86f2c" stroke-width="4" stroke-dasharray="4 2"/>
-          <!-- Couple Silhouette inside Mandap -->
-          <circle cx="178" cy="128" r="7" fill="#8b1620"/>
-          <path d="M170,168 L173,136 L183,136 L186,168 Z" fill="#b81d2a"/>
-          <circle cx="202" cy="125" r="7" fill="#d4a74a"/>
-          <path d="M194,168 L197,134 L207,134 L210,168 Z" fill="#f5e1b5"/>
-          <!-- Water Reflection Pool -->
-          <rect x="10" y="175" width="360" height="60" rx="8" fill="#b8d0d8" opacity="0.65"/>
-          <!-- Floating Diyas -->
-          <circle cx="95" cy="195" r="3" fill="#ffae00"/>
-          <circle cx="190" cy="205" r="3.5" fill="#ffae00"/>
-          <circle cx="285" cy="195" r="3" fill="#ffae00"/>
+        <svg viewBox="0 0 400 265" width="100%" style="display:block;">
+          <defs>
+            <linearGradient id="skyGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff3c4"/>
+              <stop offset="55%" stop-color="#f5c97b"/>
+              <stop offset="100%" stop-color="#d99a4e"/>
+            </linearGradient>
+            <linearGradient id="lakeWater" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#9c6234"/>
+              <stop offset="45%" stop-color="#6b3b24"/>
+              <stop offset="100%" stop-color="#3d1d12"/>
+            </linearGradient>
+            <linearGradient id="goldDome" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fff0a8"/>
+              <stop offset="50%" stop-color="#d49b35"/>
+              <stop offset="100%" stop-color="#8c5a0e"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Golden Sunset Sky -->
+          <rect x="0" y="0" width="400" height="185" fill="url(#skyGold)"/>
+          <!-- Glowing Sun Orb -->
+          <circle cx="200" cy="105" r="72" fill="rgba(255, 250, 220, 0.7)"/>
+
+          <!-- Distant Palace Arches Left & Right -->
+          <path d="M0,180 L0,125 L30,115 L60,125 L95,135 L95,180 Z" fill="#d19952" opacity="0.75"/>
+          <path d="M400,180 L400,125 L370,115 L340,125 L305,135 L305,180 Z" fill="#d19952" opacity="0.75"/>
+
+          <!-- Hanging Marigold & Jasmine Torans from Top -->
+          <path d="M0,0 Q50,32 100,0 Q150,32 200,0 Q250,32 300,0 Q350,32 400,0" fill="none" stroke="#c93b1e" stroke-width="5" stroke-dasharray="5 3"/>
+          <line x1="40" y1="0" x2="40" y2="48" stroke="#f5d77f" stroke-width="2" stroke-dasharray="3 3"/>
+          <line x1="120" y1="0" x2="120" y2="38" stroke="#f5d77f" stroke-width="2" stroke-dasharray="3 3"/>
+          <line x1="280" y1="0" x2="280" y2="38" stroke="#f5d77f" stroke-width="2" stroke-dasharray="3 3"/>
+          <line x1="360" y1="0" x2="360" y2="48" stroke="#f5d77f" stroke-width="2" stroke-dasharray="3 3"/>
+
+          <!-- Royal Lakeside Mandap Dome & Pillars -->
+          <path d="M145,68 Q200,22 255,68 Z" fill="url(#goldDome)" stroke="#734508" stroke-width="1.5"/>
+          <line x1="200" y1="16" x2="200" y2="38" stroke="#734508" stroke-width="3"/>
+          <circle cx="200" cy="14" r="4" fill="#fff0a8"/>
+          <rect x="122" y="68" width="156" height="9" rx="3" fill="url(#goldDome)" stroke="#734508"/>
+
+          <!-- Mandap Floral Drapes -->
+          <path d="M126,77 Q163,102 200,77 Q237,102 274,77" fill="none" stroke="#b81d2a" stroke-width="6"/>
+          <path d="M126,80 Q163,106 200,80 Q237,106 274,80" fill="none" stroke="#ff9f1c" stroke-width="3" stroke-dasharray="4 2"/>
+
+          <!-- 4 Carved Golden Pillars -->
+          <rect x="132" y="77" width="7" height="98" fill="url(#goldDome)"/>
+          <rect x="156" y="77" width="5" height="98" fill="url(#goldDome)"/>
+          <rect x="239" y="77" width="5" height="98" fill="url(#goldDome)"/>
+          <rect x="261" y="77" width="7" height="98" fill="url(#goldDome)"/>
+
+          <!-- Bride & Groom Silhouette under Mandap -->
+          <circle cx="187" cy="128" r="7.5" fill="#7a141c"/>
+          <path d="M177,172 L181,137 L193,137 L197,172 Z" fill="#a81822" stroke="#f5d77f" stroke-width="1"/>
+          <circle cx="213" cy="124" r="7.5" fill="#b87d24"/>
+          <path d="M203,172 L207,133 L219,133 L223,172 Z" fill="#fff3d1" stroke="#c8963e" stroke-width="1"/>
+          <!-- Sacred Agni Kund -->
+          <polygon points="195,172 205,172 208,164 192,164" fill="#8c4a19"/>
+          <path d="M197,164 Q200,150 203,164" fill="#ff7b00"/>
+
+          <!-- Mandap Steps into the Lake -->
+          <rect x="110" y="172" width="180" height="6" fill="#d4a74a"/>
+          <rect x="95" y="178" width="210" height="6" fill="#b5852b"/>
+
+          <!-- Golden Lakeside Water & Shimmering Reflections -->
+          <rect x="0" y="184" width="400" height="81" fill="url(#lakeWater)"/>
+          <!-- Water Shimmer Lines -->
+          <line x1="135" y1="196" x2="265" y2="196" stroke="#f5d77f" stroke-width="1.5" opacity="0.6"/>
+          <line x1="150" y1="208" x2="250" y2="208" stroke="#f5d77f" stroke-width="1.5" opacity="0.5"/>
+          <line x1="165" y1="222" x2="235" y2="222" stroke="#f5d77f" stroke-width="1.5" opacity="0.4"/>
+
+          <!-- Floating Lotus & Glowing Diyas on the Lake -->
+          <g>
+            <ellipse cx="65" cy="215" rx="10" ry="4" fill="#d9534f"/>
+            <circle cx="65" cy="212" r="3.5" fill="#ffea79"/>
+            <ellipse cx="335" cy="220" rx="10" ry="4" fill="#d9534f"/>
+            <circle cx="335" cy="217" r="3.5" fill="#ffea79"/>
+            <ellipse cx="125" cy="242" rx="9" ry="3.5" fill="#e67e22"/>
+            <circle cx="125" cy="239" r="3" fill="#fff2a1"/>
+            <ellipse cx="280" cy="245" rx="9" ry="3.5" fill="#e67e22"/>
+            <circle cx="280" cy="242" r="3" fill="#fff2a1"/>
+          </g>
         </svg>
       </div>
 
-      <p style="font-size: 0.9rem; color: #5a3c32; max-width: 92%; line-height: 1.6;">
-        “नियतीने बांधली दोन मनाची गाठ, विश्वासाची सोबत अन् प्रेमाची वाट,<br>
-        यांच्या शुभमिलनाने सुरू होते नव्या आयुष्याची सुंदर पहाट!”
-      </p>
+      <div class="poetic-blessing-box">
+        “नियतीने बांधली दोन मनाची गाठ, विश्वासाची सोबत अन् प्रेमाची वाट, प्रियंका आणि कौस्तुभ यांच्या शुभमिलनाने सुरू होते नव्या आयुष्याची सुंदर पहाट!”
+      </div>
     </section>
 
-    <!-- ==================== 3. UNROLLING BRIDE & GROOM SCROLLS ==================== -->
+    <!-- ==================== 3. 3D UNROLLING BRIDE & GROOM SCROLLS ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 1: वधू (Bride) -->
+      <!-- Scroll 1: वधू (Only प्रियंका) -->
       <div class="royal-scroll observe-scroll">
         <div class="scroll-roller"></div>
         <div class="scroll-body">
           <div class="scroll-inner-border">
             <span class="scroll-role-tag">* वधू *</span>
-            <div class="scroll-person-name">चि. सौ. कां. प्रियंका (पायल)</div>
+            <div class="scroll-person-name">चि. सौ. कां. प्रियंका</div>
             <div class="scroll-details">
               सौ. आशा व श्री. प्रकाशराव रामचंद्र गुंडावार<br>
               यांची कन्या<br>
@@ -895,8 +961,8 @@
     <!-- ==================== 4. INTERACTIVE "REVEAL THE DATE" SPINNER ==================== -->
     <section class="date-reveal-section">
       <div class="lotus-header-ornament">⚜️ 🪷 ⚜️</div>
-      <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--maroon); font-weight: 600; margin-bottom: 4px;">
-        SHUBH MUHURAT • शुभविवाह मुहूर्त
+      <div style="font-size: 0.85rem; letter-spacing: 1.5px; color: var(--maroon); font-weight: 700; margin-bottom: 4px;">
+        शुभविवाह मुहूर्त
       </div>
 
       <div class="slot-stage">
@@ -930,20 +996,19 @@
     <section class="memories-section">
       <div class="lotus-header-ornament" style="font-size: 1.5rem;">🌸 🌿 🌸</div>
       <h2 class="memories-title">स्नेहाचे सुंदर क्षण</h2>
-      <div class="swipe-hint">← SWIPE LEFT TO VIEW PHOTOS • फोटो पाहण्यासाठी स्वाइप करा →</div>
+      <div class="swipe-hint">← फोटो पाहण्यासाठी स्वाइप करा →</div>
 
       <div class="clothesline-track">
         <!-- Frame 1: Couple Staircase Photo 1 -->
         <div class="hanging-frame">
           <img src="1000682458.jpg" alt="Priyanka and Kaustubh" class="frame-photo">
-          <div class="frame-caption">Where it started ✨</div>
+          <div class="frame-caption">प्रियंका आणि कौस्तुभ ✨</div>
         </div>
 
         <!-- Frame 2: Romantic Quote Card -->
         <div class="hanging-frame">
           <div class="quote-frame-card">
-            “दोन मने, दोन परिवार आणि आयुष्यभराची सुंदर साथ...<br><br>
-            नियतीने बांधली रेशीमगाठ!”
+            “नियतीने बांधली दोन मनाची गाठ, विश्वासाची सोबत अन् प्रेमाची वाट, प्रियंका आणि कौस्तुभ यांच्या शुभमिलनाने सुरू होते नव्या आयुष्याची सुंदर पहाट!”
           </div>
           <div class="frame-caption">#PriyankaWedsKaustubh</div>
         </div>
@@ -951,7 +1016,7 @@
         <!-- Frame 3: Couple Staircase Close-up Photo 2 -->
         <div class="hanging-frame">
           <img src="1000682460.jpg" alt="Priyanka and Kaustubh Together" class="frame-photo">
-          <div class="frame-caption">Stolen glances 💫</div>
+          <div class="frame-caption">शुभमिलन 💫</div>
         </div>
 
         <!-- Frame 4: Bride Solo Portrait -->
@@ -968,27 +1033,24 @@
       </div>
     </section>
 
-    <!-- ==================== 6. ARCHED MAROON WEDDING & BHOJ CARDS ==================== -->
+    <!-- ==================== 6. ARCHED MAROON WEDDING & BHOJ CARD ==================== -->
     <section class="vivaah-maroon-section">
-      <div style="font-size: 0.78rem; letter-spacing: 2.5px; color: var(--gold-bright); text-transform: uppercase;">
-        WEDDING CEREMONY &amp; FEAST
-      </div>
-      <h2 style="font-family: 'Rozha One', serif; font-size: 2rem; color: #fff; margin: 6px 0 18px;">
+      <h2 style="font-family: 'Rozha One', serif; font-size: 2rem; color: var(--gold-bright); margin: 0 0 18px;">
         विवाह मुहूर्त व स्थळ
       </h2>
 
-      <!-- Arch Card 1: Vivaah (Wedding Only) -->
+      <!-- Arch Card: Only शुभविवाह -->
       <div class="scallop-arch-card">
         <div style="font-size: 2.4rem;">👰‍♀️🤵‍♂️</div>
-        <div class="arch-card-title">शुभविवाह (Vivaah)</div>
-        <p style="font-size: 0.9rem; color: #5a3c32; margin-bottom: 6px;">
+        <div class="arch-card-title">शुभविवाह</div>
+        <p style="font-size: 0.92rem; color: #5a3c32; margin-bottom: 6px;">
           मिती शके १९४८, मार्गशीर्ष कृष्ण पक्ष १२
         </p>
         <div class="arch-datetime">
           सोमवार, दि. ०४/०१/२०२७ • सकाळी १०.४२ मि.
         </div>
         <div class="arch-venue-name">वासवी सेलिब्रेशन हॉल</div>
-        <p style="font-size: 0.92rem; color: #5a3c32;">आलापल्ली रोड, अहेरी</p>
+        <p style="font-size: 0.95rem; color: #5a3c32;">आलापल्ली रोड, अहेरी</p>
 
         <hr style="border: none; border-top: 1px dashed var(--gold); margin: 14px 0;">
 
@@ -1002,26 +1064,26 @@
       </div>
     </section>
 
-    <!-- ==================== 7. UNROLLING FAMILY & SENDER SCROLLS ==================== -->
+    <!-- ==================== 7. UNROLLING FAMILY SCROLLS (NO प्रेषक) ==================== -->
     <section class="scroll-section" style="padding-top: 32px;">
 
-      <!-- Scroll 3: आपले कृपाभिलाषी (Full Family List) -->
+      <!-- Scroll 3: आपले कृपाभिलाषी (Exact Requested Format) -->
       <div class="royal-scroll observe-scroll">
         <div class="scroll-roller"></div>
         <div class="scroll-body">
           <div class="scroll-inner-border">
-            <span class="scroll-role-tag">WITH BEST COMPLIMENTS FROM</span>
-            <div class="scroll-person-name" style="font-size: 1.6rem;">❖ आपले कृपाभिलाषी ❖</div>
-            <div class="scroll-details" style="font-size: 0.92rem; line-height: 1.8;">
-              श्री. विजयराव रामचंद्र गुंडावार • सौ. विनाताई<br>
-              श्री. वसंतराव रामचंद्र गुंडावार • सौ. आशाताई<br>
-              श्री. प्रकाशराव रामचंद्र गुंडावार • सौ. प्रिती<br>
-              श्री. अमोल विजयराव गुंडावार • सौ. मेघा<br>
-              श्री. अंकुश विजयराव गुंडावार • सौ. नलिनी<br>
-              श्री. आनंद विजयराव गुंडावार • सौ. रोहीणी<br>
-              श्री. निलेश वसंतराव गुंडावार<br>
-              समीर प्रकाशराव गुंडावार<br>
-              <strong style="color: var(--gold-bright); display: block; margin-top: 6px; font-size: 1.05rem;">
+            <div class="scroll-person-name" style="font-size: 1.65rem; color: var(--gold-bright);">
+              ❖ आपले कृपाभिलाषी ❖
+            </div>
+            <div class="scroll-details" style="font-size: 0.94rem; line-height: 1.9;">
+              श्री. विजयराव रामचंद्र गुंडावार<br>
+              • सौ. विनाताई श्री. वसंतराव रामचंद्र गुंडावार<br>
+              • सौ. आशाताई श्री. प्रकाशराव रामचंद्र गुंडावार • सौ. प्रिती श्री. अमोल विजयराव गुंडावार<br>
+              • सौ. मेघा श्री. अंकुश विजयराव गुंडावार<br>
+              • सौ. नलिनी श्री. आनंद विजयराव गुंडावार<br>
+              • सौ. रोहीणी श्री. निलेश वसंतराव गुंडावार<br><br>
+              चि. समीर प्रकाशराव गुंडावार<br>
+              <strong style="color: var(--gold-bright); display: block; margin-top: 4px; font-size: 1.08rem;">
                 आणि समस्त गुंडावार परिवार
               </strong>
             </div>
@@ -1031,25 +1093,18 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- Scroll 4: बालगोपाळांचे निमंत्रण व प्रेषक -->
+      <!-- Scroll 4: बालगोपाळांचे निमंत्रण (प्रेषक Removed) -->
       <div class="royal-scroll observe-scroll">
         <div class="scroll-roller"></div>
         <div class="scroll-body">
           <div class="scroll-inner-border">
-            <span class="scroll-role-tag">प्रेमळ निमंत्रण</span>
+            <span class="scroll-role-tag">बालगोपाळांचे आग्रहाचे निमंत्रण</span>
             <div class="scroll-person-name" style="font-size: 1.45rem; color: var(--gold-bright);">
               “आमच्या आत्याच्या लग्नाला यायचं बरं कां...!”
             </div>
-            <p class="scroll-details" style="margin-bottom: 14px;">
+            <p class="scroll-details">
               कु. अर्पिता, चि. ईशांत, शिवम, अद्विक, ओझस, योम
             </p>
-            <hr style="border: none; border-top: 1px dashed rgba(245,215,127,0.4); margin: 12px 0;">
-            <span class="scroll-role-tag">प्रेषक</span>
-            <div class="scroll-details">
-              <strong>श्री. प्रकाशराव रामचंद्र गुंडावार</strong><br>
-              &#x092E;&#x0941;.&#x092A;&#x094B;. &#x0928;&#x093E;&#x0902;&#x0926;&#x0917;&#x093E;&#x0902;&#x0935; (&#x0918;&#x094B;&#x0938;&#x0930;&#x0940;), &#x0924;&#x093E;. &#x092E;&#x0942;&#x0932;, &#x091C;&#x093F;. &#x091A;&#x0902;&#x0926;&#x094D;&#x0930;&#x092A;&#x0942;&#x0930;<br>
-              मोबा. 8975466110 / 7517572507
-            </div>
             <div class="scroll-lotus-divider">🪷</div>
           </div>
         </div>
@@ -1058,7 +1113,7 @@
 
       <!-- 3 Quick Action Icons (Instagram, Location, Calendar) -->
       <div class="action-icons-row">
-        <div class="action-circle" onclick="openInstaModal()" title="Follow the Couple">📷</div>
+        <div class="action-circle" onclick="openInstaModal()" title="Hashtag">📷</div>
         <a class="action-circle" href="https://www.google.com/maps/search/?api=1&query=Vasavi+Celebration+Hall+Alapalli+Road+Aheri" target="_blank" title="Venue Map">📍</a>
         <a class="action-circle" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Priyanka+%26+Kaustubh+Wedding&dates=20270104T051200Z/20270104T090000Z&location=Vasavi+Celebration+Hall,+Alapalli+Road,+Aheri" target="_blank" title="Save to Calendar">📅</a>
       </div>
@@ -1067,12 +1122,11 @@
     <!-- ==================== 8. FINAL EASEL BOARD SIGN-OFF ==================== -->
     <footer class="easel-footer-scene">
       <div class="easel-board">
-        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.45rem; color: var(--maroon); margin-bottom: 8px;">
-          Your Presence Means the World to Us
-        </p>
-        <p style="font-size: 0.95rem; color: var(--text-dark); font-weight: 600;">
+        <p style="font-size: 1.05rem; color: var(--text-dark); font-weight: 600; line-height: 1.8;">
           आपल्या शुभ आशीर्वादांच्या प्रतीक्षेत,<br>
-          <span style="color: var(--maroon); font-size: 1.15rem;">समस्त गुंडावार आणि गादेवार परिवार</span>
+          <span style="font-family: 'Rozha One', serif; color: var(--maroon); font-size: 1.55rem; font-weight: 400;">
+            समस्त गुंडावार परिवार
+          </span>
         </p>
       </div>
       <div class="easel-legs"></div>
@@ -1087,7 +1141,7 @@
       <p style="font-size: 0.88rem; color: #5a3c32; margin-bottom: 18px;">
         लग्नातील सुंदर क्षण शेअर करताना हा हॅशटॅग नक्की वापरा!
       </p>
-      <button class="tap-open-btn" onclick="closeInstaModal()">Close • बंद करा</button>
+      <button class="tap-open-btn" onclick="closeInstaModal()">बंद करा</button>
     </div>
   </div>
 
@@ -1139,14 +1193,14 @@
       }
     }
 
-    // 2. Unroll Royal Scrolls on Scroll into View
+    // 2. Automatically Unroll 3D Royal Scrolls on Scroll into View
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('unrolled');
         }
       });
-    }, { threshold: 0.22 });
+    }, { threshold: 0.2 });
 
     document.querySelectorAll('.observe-scroll').forEach(el => scrollObserver.observe(el));
 
@@ -1182,7 +1236,7 @@
         mEl.textContent = 'JAN';
         yEl.textContent = '2027';
 
-        btn.textContent = 'Save the Date ✨';
+        btn.textContent = '०४ जानेवारी २०२७ ✨';
         document.getElementById('muhuratNote').classList.add('show');
       }, 1300);
     }
