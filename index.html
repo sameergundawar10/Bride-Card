@@ -173,7 +173,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 10px 20px;
+      padding: 8px 20px;
       position: relative;
       overflow: hidden;
       transition: opacity 0.7s ease, transform 0.8s ease;
@@ -181,27 +181,27 @@
     }
 
     .ganpati-png {
-      width: clamp(48px, 14vw, 66px);
-      height: clamp(48px, 14vw, 66px);
+      width: clamp(46px, 13vw, 64px);
+      height: clamp(46px, 13vw, 64px);
       object-fit: contain;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       filter: drop-shadow(0 2px 4px rgba(94, 13, 21, 0.2));
     }
 
     .gate-invocations {
-      font-size: clamp(0.92rem, 3.8vw, 1.05rem);
+      font-size: clamp(0.9rem, 3.7vw, 1.04rem);
       color: var(--maroon);
       font-weight: 700;
-      line-height: 1.48;
-      margin-bottom: 8px;
+      line-height: 1.45;
+      margin-bottom: 6px;
     }
 
     .gate-invite-copy {
-      font-size: clamp(0.8rem, 3.4vw, 0.92rem);
+      font-size: clamp(0.78rem, 3.3vw, 0.9rem);
       color: #5e2a24;
-      line-height: 1.5;
+      line-height: 1.48;
       max-width: 295px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .royale-pill-btn {
@@ -218,11 +218,97 @@
       border-radius: 30px;
       box-shadow: 0 6px 16px rgba(94, 13, 21, 0.35), inset 0 0 0 2px rgba(244, 214, 133, 0.25);
       animation: softPulse 2s infinite;
+      transition: box-shadow 0.4s ease;
+    }
+
+    .royale-pill-btn.attention-glow {
+      box-shadow: 0 0 0 5px rgba(207, 161, 70, 0.35), 0 0 22px rgba(143, 29, 40, 0.65);
+      animation: strongPulse 1.35s infinite;
     }
 
     @keyframes softPulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.04); }
+    }
+
+    @keyframes strongPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(207, 161, 70, 0.35), 0 6px 16px rgba(94, 13, 21, 0.4); }
+      50% { transform: scale(1.07); box-shadow: 0 0 0 9px rgba(207, 161, 70, 0.15), 0 8px 24px rgba(143, 29, 40, 0.6); }
+    }
+
+    /* 5-Second Tap Suggestion Hint on Opening Screen */
+    .tap-hint-suggestion {
+      margin-top: 9px;
+      font-size: clamp(0.72rem, 3vw, 0.8rem);
+      color: var(--maroon);
+      font-weight: 600;
+      background: rgba(207, 161, 70, 0.18);
+      border: 1px dashed var(--gold-dark);
+      padding: 4px 12px;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .tap-hint-suggestion.show {
+      opacity: 1;
+      transform: translateY(0);
+      animation: bounceUpHint 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounceUpHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* 5-Second Floating Scroll-Down Suggestion Pill */
+    .scroll-hint-pill {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      z-index: 950;
+      background: linear-gradient(135deg, rgba(94, 13, 21, 0.94) 0%, rgba(65, 7, 12, 0.96) 100%);
+      color: var(--gold-bright);
+      border: 1.5px solid var(--gold);
+      border-radius: 30px;
+      padding: 9px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 3px rgba(251, 244, 232, 0.35);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scroll-hint-pill.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+      animation: floatScrollPill 1.6s ease-in-out infinite;
+    }
+
+    .scroll-arrow-icon {
+      display: inline-block;
+      font-size: 1rem;
+      animation: arrowDrop 1.2s ease-in-out infinite;
+    }
+
+    @keyframes floatScrollPill {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(5px); }
+    }
+
+    @keyframes arrowDrop {
+      0%, 100% { transform: translateY(-2px); }
+      50% { transform: translateY(3px); }
     }
 
     .gate-bottom {
@@ -307,7 +393,6 @@
       text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 1px 6px rgba(255, 255, 255, 0.95);
     }
 
-    /* Highlighted English Couple Names: Rich Royal Wine + Crisp Pearl Halo */
     .hero-names-en {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -324,7 +409,6 @@
         0 3px 10px rgba(94, 13, 21, 0.28);
     }
 
-    /* Highlighted Marathi Names Ribbon Pill so it Pops Cleanly over the Mandap */
     .hero-names-mr-badge {
       display: inline-block;
       background: linear-gradient(135deg, rgba(107, 15, 25, 0.92) 0%, rgba(72, 8, 15, 0.94) 100%);
@@ -491,7 +575,6 @@
       color: #faeede;
     }
 
-    /* Clean One-by-One Family Names List (Fits Strictly Inside Border) */
     .family-list-clean {
       display: flex;
       flex-direction: column;
@@ -529,7 +612,6 @@
       display: block;
     }
 
-    /* Gold Geometric Divider Band */
     .gold-pattern-bar {
       width: 100%;
       height: 22px;
@@ -876,7 +958,6 @@
       display: block;
     }
 
-    /* Royal Countdown Card (Placed Mid Between Lotus Motif & Action Icons) */
     .muhurtham-countdown-card {
       width: 100%;
       max-width: 385px;
@@ -1056,9 +1137,15 @@
 
   <div class="mobile-shell">
 
-    <!-- Hidden YouTube Player for https://youtu.be/Ddm7VUgw5Vw (Starts at 0:18) -->
+    <!-- Hidden YouTube Player for Ramayana: Mangal Rang (z_e1d5_VVfw, 0:05 to 2:22) -->
     <div id="yt-hidden-player"><div id="ytplayer"></div></div>
     <div class="sound-fab" id="soundFab" onclick="toggleSong()" title="संगीत चालू/बंद करा">🔊</div>
+
+    <!-- 5-Second Floating Scroll Suggestion Pill -->
+    <div class="scroll-hint-pill" id="scrollHintPill" onclick="scrollToNextSection()">
+      <span>खाली स्क्रोल करा • Scroll down</span>
+      <span class="scroll-arrow-icon">↓</span>
+    </div>
 
     <!-- ==================== 1. OPENING GATE (FULL SCREEN, NO SCROLL, ELEPHANTS FACING EACH OTHER) ==================== -->
     <div id="intro-gate">
@@ -1078,7 +1165,8 @@
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ।।<br>
           आपणास सहकुटुंब आग्रहाचे सस्नेह निमंत्रण
         </p>
-        <button class="royale-pill-btn" onclick="openInvitationGate()">Tap to open</button>
+        <button class="royale-pill-btn" id="openGateBtn" onclick="openInvitationGate()">Tap to open</button>
+        <div class="tap-hint-suggestion" id="tapHintText">👆 निमंत्रण उघडण्यासाठी येथे टॅप करा</div>
       </div>
 
       <div class="gate-bottom maroon-damask">
@@ -1134,7 +1222,7 @@
     </section>
 
     <!-- ==================== 3. 3D UNROLLING MAROON & GOLD SCROLLS (BRIDE & GROOM) ==================== -->
-    <section class="scroll-section">
+    <section class="scroll-section" id="first-scroll-section">
 
       <!-- Scroll 1: वधू -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
@@ -1313,7 +1401,7 @@
     <!-- ==================== 7. 3D UNROLLING FAMILY & KIDS SCROLLS + COUNTDOWN + 3 ICONS ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 3: आपले कृपाभिलाषी (Clean One-by-One Stack, Properly Fitted Inside Border) -->
+      <!-- Scroll 3: आपले कृपाभिलाषी -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1364,7 +1452,7 @@
       <!-- Upright Pink Lotus Plant PNG -->
       <img id="img-lotus-stem" class="lotus-plant-png" alt="Lotus Floral Motif">
 
-      <!-- COUNTING DOWN TO THE MUHURTHAM (Added in the Middle) -->
+      <!-- COUNTING DOWN TO THE MUHURTHAM -->
       <div class="muhurtham-countdown-card">
         <div class="cd-eyebrow">COUNTING DOWN TO THE MUHURTHAM</div>
         <div class="cd-subtitle">Time until the auspicious moment</div>
@@ -1486,10 +1574,36 @@
     }
     applyAssets();
 
+    // ==================== 5-SECOND TAP & SCROLL SUGGESTIONS ====================
+    let gateOpened = false;
+    let hasUserScrolled = false;
+    let scrollHintTimer = null;
+
+    // 1) Show "Tap to open" hint if guest hasn't tapped within 5 seconds
+    const tapHintTimer = setTimeout(() => {
+      if (!gateOpened) {
+        document.getElementById('tapHintText').classList.add('show');
+        document.getElementById('openGateBtn').classList.add('attention-glow');
+      }
+    }, 5000);
+
+    function hideScrollHint() {
+      hasUserScrolled = true;
+      if (scrollHintTimer) clearTimeout(scrollHintTimer);
+      document.getElementById('scrollHintPill').classList.remove('show');
+    }
+
+    function scrollToNextSection() {
+      hideScrollHint();
+      const target = document.getElementById('first-scroll-section');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     // ==================== YOUTUBE AUDIO PLAYER (0:05 TO 2:22) ====================
     let ytPlayer;
     let isPlaying = false;
-    let gateOpened = false;
     let endCheckTimer = null;
 
     function onYouTubeIframeAPIReady() {
@@ -1529,6 +1643,10 @@
     }
 
     function openInvitationGate() {
+      clearTimeout(tapHintTimer);
+      document.getElementById('tapHintText').classList.remove('show');
+      document.getElementById('openGateBtn').classList.remove('attention-glow');
+
       document.getElementById('intro-gate').classList.add('opened');
       document.documentElement.classList.remove('gate-locked');
       document.body.classList.remove('gate-locked');
@@ -1542,6 +1660,13 @@
         isPlaying = true;
         startEndCheck();
       }
+
+      // 2) Show "Scroll Down" hint if guest hasn't scrolled within 5 seconds after opening
+      scrollHintTimer = setTimeout(() => {
+        if (!hasUserScrolled && window.scrollY < 40) {
+          document.getElementById('scrollHintPill').classList.add('show');
+        }
+      }, 5000);
 
       setTimeout(() => {
         gateOpened = true;
@@ -1584,6 +1709,9 @@
     }
 
     window.addEventListener('scroll', () => {
+      if (gateOpened && window.scrollY > 35 && !hasUserScrolled) {
+        hideScrollHint();
+      }
       if (!ticking) {
         window.requestAnimationFrame(() => {
           checkScrollsAtMidScreen();
