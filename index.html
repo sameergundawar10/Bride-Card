@@ -26,14 +26,27 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
       background-color: #160809;
       font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
       color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       min-height: 100vh;
-      overflow-x: hidden;
+      min-height: 100dvh;
+    }
+
+    /* Lock scrolling completely while opening screen is active */
+    html.gate-locked,
+    body.gate-locked {
+      overflow: hidden !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      touch-action: none;
     }
 
     /* Mobile Canvas Shell */
@@ -44,6 +57,7 @@
       background-image: radial-gradient(rgba(180, 130, 60, 0.1) 1px, transparent 1px);
       background-size: 24px 24px;
       min-height: 100vh;
+      min-height: 100dvh;
       position: relative;
       overflow-x: hidden;
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.85);
@@ -58,10 +72,10 @@
         repeating-linear-gradient(-45deg, rgba(212, 167, 74, 0.04) 0px, rgba(212, 167, 74, 0.04) 2px, transparent 2px, transparent 14px);
     }
 
-    /* Floating Sound Toggle (Top Right like video) */
+    /* Floating Sound Toggle */
     .sound-fab {
       position: fixed;
-      top: 18px;
+      top: 16px;
       right: 16px;
       z-index: 1200;
       width: 42px;
@@ -89,15 +103,17 @@
       z-index: -1;
     }
 
-    /* ==================== 1. OPENING GATE (TOP / MIDDLE / BOTTOM SPLIT LIKE VIDEO) ==================== */
+    /* ==================== 1. OPENING GATE (EXACT FULL VIEWPORT, NO SCROLL) ==================== */
     #intro-gate {
       position: fixed;
       top: 0;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
       max-width: 430px;
       height: 100vh;
+      height: 100dvh;
       z-index: 1100;
       display: flex;
       flex-direction: column;
@@ -111,14 +127,16 @@
 
     /* Top Maroon Panel with Mirrored Pink Lotus Stems */
     .gate-top {
-      height: 29%;
+      flex: 0 0 28%;
+      min-height: 0;
       width: 100%;
       border-bottom: 3px double var(--gold);
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       padding: 10px 14px;
       position: relative;
+      overflow: hidden;
       transition: transform 1.25s cubic-bezier(0.65, 0, 0.35, 1);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
       z-index: 2;
@@ -136,7 +154,7 @@
 
     .gate-lotus-img {
       height: 82%;
-      max-height: 155px;
+      max-height: 150px;
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
@@ -148,7 +166,8 @@
 
     /* Middle Cream Damask Band */
     .gate-middle {
-      height: 44%;
+      flex: 1 1 44%;
+      min-height: 0;
       width: 100%;
       background: linear-gradient(180deg, #efe1cb 0%, #fbf4e8 50%, #efe1cb 100%);
       display: flex;
@@ -156,44 +175,45 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 16px 24px;
+      padding: 10px 20px;
       position: relative;
+      overflow: hidden;
       transition: opacity 0.7s ease, transform 0.8s ease;
       z-index: 3;
     }
 
     .ganpati-png {
-      width: 68px;
-      height: 68px;
+      width: clamp(48px, 14vw, 66px);
+      height: clamp(48px, 14vw, 66px);
       object-fit: contain;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       filter: drop-shadow(0 2px 4px rgba(94, 13, 21, 0.2));
     }
 
     .gate-invocations {
-      font-size: 1.05rem;
+      font-size: clamp(0.92rem, 3.8vw, 1.05rem);
       color: var(--maroon);
       font-weight: 700;
-      line-height: 1.55;
-      margin-bottom: 10px;
+      line-height: 1.48;
+      margin-bottom: 8px;
     }
 
     .gate-invite-copy {
-      font-size: 0.92rem;
+      font-size: clamp(0.8rem, 3.4vw, 0.92rem);
       color: #5e2a24;
-      line-height: 1.55;
-      max-width: 290px;
-      margin-bottom: 18px;
+      line-height: 1.5;
+      max-width: 295px;
+      margin-bottom: 14px;
     }
 
-    /* Ornate Maroon Pointed-End "Tap to open" Button (Matching Video) */
+    /* Ornate Maroon Button */
     .royale-pill-btn {
       background: linear-gradient(180deg, #8b1b26 0%, #5e0d15 100%);
       color: #fff;
       border: 1.5px solid var(--gold);
-      padding: 10px 34px;
+      padding: 9px 32px;
       font-family: 'Cormorant Garamond', 'Noto Serif Devanagari', serif;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       font-weight: 600;
       letter-spacing: 0.5px;
       cursor: pointer;
@@ -208,24 +228,27 @@
       50% { transform: scale(1.04); }
     }
 
-    /* Bottom Maroon Panel with Mirrored Royal Elephants */
+    /* Bottom Maroon Panel with Royal Elephants Facing Inward */
     .gate-bottom {
-      height: 27%;
+      flex: 0 0 28%;
+      min-height: 0;
       width: 100%;
       border-top: 3px double var(--gold);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 14px;
+      padding: 8px 10px;
       position: relative;
+      overflow: hidden;
       transition: transform 1.25s cubic-bezier(0.65, 0, 0.35, 1);
       box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.45);
       z-index: 2;
     }
 
     .gate-elephant-img {
-      height: 82%;
+      height: 84%;
       max-height: 145px;
+      max-width: 47%;
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
@@ -246,6 +269,7 @@
     /* ==================== 2. FULL-BLEED LAKESIDE MANDAP HERO ==================== */
     .mandap-hero {
       min-height: 98vh;
+      min-height: 98dvh;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -260,7 +284,6 @@
       overflow: hidden;
     }
 
-    /* Soft Gradient Top & Bottom Fade so Text Reads Clearly & Blends into Parchment */
     .mandap-hero::before {
       content: "";
       position: absolute;
@@ -303,7 +326,6 @@
       text-shadow: 0 2px 12px rgba(255, 255, 255, 0.95);
     }
 
-    /* Fallback Illustrated Mandap (Hidden automatically if mandap-hero.jpg loads) */
     .hero-svg-fallback {
       position: absolute;
       inset: 0;
@@ -330,7 +352,7 @@
       box-shadow: 0 8px 22px rgba(70, 20, 20, 0.12);
     }
 
-    /* ==================== 3. 3D UNROLLING MAROON & GOLD SCROLLS (MID-SCREEN TRIGGER) ==================== */
+    /* ==================== 3. 3D UNROLLING MAROON & GOLD SCROLLS ==================== */
     .scroll-section {
       padding: 34px 16px;
       display: flex;
@@ -347,7 +369,6 @@
       cursor: pointer;
     }
 
-    /* 3D Cylindrical Maroon & Gold Wooden Rollers */
     .scroll-roller {
       width: 100%;
       height: 24px;
@@ -375,7 +396,6 @@
     .scroll-roller::before { left: -9px; }
     .scroll-roller::after { right: -9px; }
 
-    /* Smooth Mid-Screen Unroll using CSS Grid Rows (2.2 seconds) */
     .scroll-body-wrapper {
       width: 90%;
       margin: -3px auto;
@@ -452,7 +472,7 @@
       display: block;
     }
 
-    /* Gold Geometric Divider Band (Matching Video) */
+    /* Gold Geometric Divider Band */
     .gold-pattern-bar {
       width: 100%;
       height: 22px;
@@ -468,9 +488,9 @@
       background: rgba(255, 248, 236, 0.55);
     }
 
-    /* ==================== 4. REVEAL THE DATE + PALACE COURTYARD PAVILION ==================== */
+    /* ==================== 4. REVEAL THE DATE SECTION (NO COURTYARD PAVILION) ==================== */
     .date-courtyard-section {
-      padding: 32px 0 0;
+      padding: 32px 0 24px;
       text-align: center;
       position: relative;
       background: linear-gradient(180deg, var(--cream) 0%, #f9efe0 100%);
@@ -548,7 +568,7 @@
     }
 
     .muhurat-revealed-text {
-      margin: 14px 18px 8px;
+      margin: 14px 18px 4px;
       font-size: 0.94rem;
       color: var(--maroon);
       font-weight: 600;
@@ -562,25 +582,9 @@
       transform: translateY(0);
     }
 
-    /* Ornate Palace Courtyard Pavilion & Tiered Fountain Scene */
-    .courtyard-pavilion-wrap {
-      width: 100%;
-      margin-top: 14px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .courtyard-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 88%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 88%, transparent 100%);
-    }
-
-    /* ==================== 5. HANGING PHOTO CAROUSEL ON RED STRING (<<< >>>) ==================== */
+    /* ==================== 5. HANGING PHOTO CAROUSEL ON RED STRING ==================== */
     .photo-gallery-section {
-      padding: 20px 0 38px;
+      padding: 12px 0 38px;
       text-align: center;
       position: relative;
     }
@@ -598,7 +602,6 @@
       overflow: hidden;
     }
 
-    /* Red Horizontal Wire */
     .red-string-stage::before {
       content: "";
       position: absolute;
@@ -638,7 +641,6 @@
       z-index: 2;
     }
 
-    /* Gold Ring + Dotted Hanging Strings to Red Wire */
     .maroon-hanging-frame::before {
       content: "";
       position: absolute;
@@ -728,7 +730,6 @@
       border-bottom: 3px solid var(--gold);
     }
 
-    /* Ornate Corner Archway Accents */
     .corner-arch {
       position: absolute;
       top: 0;
@@ -747,7 +748,6 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
 
-    /* Mughal Scalloped Arch Card (Matching Video 00:32) */
     .mughal-arch-card {
       max-width: 345px;
       margin: 0 auto;
@@ -773,7 +773,18 @@
       font-family: 'Rozha One', serif;
       font-size: 2.3rem;
       color: var(--maroon);
-      margin: 4px 0 12px;
+      margin: 4px 0 10px;
+    }
+
+    .vivaah-date-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 6px 12px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--maroon);
+      border-bottom: 1px solid rgba(120, 21, 32, 0.2);
     }
 
     .vivaah-venue-row {
@@ -783,8 +794,6 @@
       text-align: left;
       gap: 12px;
       padding: 12px 4px;
-      border-top: 1px solid rgba(120, 21, 32, 0.2);
-      border-bottom: 1px solid rgba(120, 21, 32, 0.2);
     }
 
     .map-square-btn {
@@ -800,16 +809,6 @@
       font-size: 1.3rem;
       text-decoration: none;
       flex-shrink: 0;
-    }
-
-    .vivaah-date-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 4px 8px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--maroon);
     }
 
     /* ==================== 7. LOTUS PLANT MOTIF, 3 ICONS & FINAL SUNSET EASEL ==================== */
@@ -843,7 +842,6 @@
       box-shadow: 0 6px 16px rgba(94, 13, 21, 0.12);
     }
 
-    /* Torn Cream Edge into Final Sunset Palace Easel (Matching Video 00:42-00:44) */
     .easel-footer {
       position: relative;
       padding: 58px 20px 68px;
@@ -933,15 +931,15 @@
     }
   </style>
 </head>
-<body>
+<body class="gate-locked">
 
   <div class="mobile-shell">
 
-    <!-- Hidden YouTube Player for https://youtu.be/Ddm7VUgw5Vw -->
+    <!-- Hidden YouTube Player for https://youtu.be/Ddm7VUgw5Vw (Starts at 0:18) -->
     <div id="yt-hidden-player"><div id="ytplayer"></div></div>
     <div class="sound-fab" id="soundFab" onclick="toggleSong()" title="संगीत चालू/बंद करा">🔊</div>
 
-    <!-- ==================== 1. OPENING GATE (TOP LOTUS / MIDDLE GANPATI / BOTTOM ELEPHANTS) ==================== -->
+    <!-- ==================== 1. OPENING GATE (FULL SCREEN, NO SCROLL, ELEPHANTS FACING EACH OTHER) ==================== -->
     <div id="intro-gate">
       <!-- Top Deep Maroon Damask Panel with Mirrored Lotus Motifs -->
       <div class="gate-top maroon-damask">
@@ -964,10 +962,10 @@
         <button class="royale-pill-btn" onclick="openInvitationGate()">Tap to open</button>
       </div>
 
-      <!-- Bottom Deep Maroon Damask Panel with Mirrored Royal Elephants -->
+      <!-- Bottom Deep Maroon Damask Panel (Left Elephant Mirrored to Face Right, Right Elephant Faces Left) -->
       <div class="gate-bottom maroon-damask">
-        <img id="img-elephant-bot-l" class="gate-elephant-img" alt="Royal Elephant">
-        <img id="img-elephant-bot-r" class="gate-elephant-img mirror-x" alt="Royal Elephant">
+        <img id="img-elephant-bot-l" class="gate-elephant-img mirror-x" alt="Royal Elephant">
+        <img id="img-elephant-bot-r" class="gate-elephant-img" alt="Royal Elephant">
       </div>
     </div>
 
@@ -984,24 +982,19 @@
           </linearGradient>
         </defs>
         <rect width="430" height="760" fill="url(#skySunset)"/>
-        <!-- Flanking Cypress Trees & Palace Arches -->
         <polygon points="0,330 110,380 110,500 0,540" fill="#f7e8d4" stroke="#d4b88c"/>
         <polygon points="430,330 320,380 320,500 430,540" fill="#f7e8d4" stroke="#d4b88c"/>
         <polygon points="34,260 14,480 54,480" fill="#2c4427"/>
         <polygon points="396,260 376,480 416,480" fill="#2c4427"/>
-        <!-- Central White & Gold Mandap -->
         <rect x="112" y="295" width="206" height="190" fill="#fff3d6" stroke="#d4a74a" stroke-width="2"/>
         <path d="M118,305 Q160,340 132,475 L118,475 Z" fill="#fdf6e7"/>
         <path d="M118,305 Q168,332 132,410" fill="none" stroke="#8b1b26" stroke-width="7"/>
         <path d="M312,305 Q270,340 298,475 L312,475 Z" fill="#fdf6e7"/>
         <path d="M312,305 Q262,332 298,410" fill="none" stroke="#8b1b26" stroke-width="7"/>
         <rect x="104" y="285" width="222" height="14" fill="#fffaf0" stroke="#cfa146"/>
-        <!-- Floral Canopy -->
         <g fill="#c94b3b"><circle cx="130" cy="296" r="10"/><circle cx="170" cy="296" r="11"/><circle cx="215" cy="296" r="12"/><circle cx="260" cy="296" r="11"/><circle cx="300" cy="296" r="10"/></g>
         <g fill="#f2a93b"><circle cx="150" cy="296" r="9"/><circle cx="192" cy="296" r="10"/><circle cx="238" cy="296" r="10"/><circle cx="280" cy="296" r="9"/></g>
-        <!-- Reflective Lotus Pond Corridor -->
         <polygon points="118,485 312,485 390,760 40,760" fill="url(#pondWater)" stroke="#e6d2b3" stroke-width="4"/>
-        <!-- Floating Pink Lotuses & Diyas -->
         <circle cx="175" cy="560" r="8" fill="#f5a3b7"/><circle cx="255" cy="610" r="9" fill="#f5a3b7"/><circle cx="215" cy="675" r="10" fill="#f5a3b7"/>
         <circle cx="215" cy="535" r="4" fill="#ffdf70"/><circle cx="160" cy="635" r="4" fill="#ffdf70"/><circle cx="270" cy="575" r="4" fill="#ffdf70"/>
       </svg>
@@ -1023,7 +1016,7 @@
     <!-- ==================== 3. 3D UNROLLING MAROON & GOLD SCROLLS (BRIDE & GROOM) ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 1: वधू (Only प्रियंका) -->
+      <!-- Scroll 1: वधू -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1047,7 +1040,7 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- Scroll 2: वर (Groom) -->
+      <!-- Scroll 2: वर -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1075,12 +1068,13 @@
 
     <div class="gold-pattern-bar">✦ ❖ ✦ ❖ ✦ ❖ ✦ ❖ ✦</div>
 
-    <!-- ==================== 4. REVEAL THE DATE + PALACE COURTYARD PAVILION ==================== -->
+    <!-- ==================== 4. REVEAL THE DATE SECTION ==================== -->
     <section class="date-courtyard-section">
       <img class="lotus-crest-png js-lotus-divider" alt="Lotus Crest">
 
       <div class="date-row-with-elephants">
-        <img class="side-elephant-png js-elephant-img" alt="Royal Elephant">
+        <!-- Elephants facing inward toward the date spinner -->
+        <img class="side-elephant-png mirror-x js-elephant-img" alt="Royal Elephant">
 
         <div class="slot-boxes">
           <div class="slot-col">
@@ -1097,7 +1091,7 @@
           </div>
         </div>
 
-        <img class="side-elephant-png mirror-x js-elephant-img" alt="Royal Elephant">
+        <img class="side-elephant-png js-elephant-img" alt="Royal Elephant">
       </div>
 
       <button class="royale-pill-btn" id="revealDateBtn" style="margin-top: 14px;" onclick="spinAndRevealDate()">
@@ -1107,11 +1101,6 @@
       <div class="muhurat-revealed-text" id="muhuratNote">
         मिती शके १९४८, मार्गशीर्ष कृष्ण पक्ष १२, अनुराधा नक्षत्र<br>
         <strong>सोमवार, दि. ०४/०१/२०२७ ला सकाळी १०.४२ मिनिटांनी</strong>
-      </div>
-
-      <!-- Ornate Palace Courtyard Scene with Domed Pavilion, Tiered Fountain & Lotus Pond -->
-      <div class="courtyard-pavilion-wrap">
-        <img id="img-courtyard-pavilion" class="courtyard-img" alt="Palace Courtyard Pavilion and Fountain">
       </div>
     </section>
 
@@ -1163,7 +1152,6 @@
 
     <!-- ==================== 6. DEEP MAROON CEREMONIES SECTION (ONLY शुभविवाह) ==================== -->
     <section class="ceremonies-section maroon-damask">
-      <!-- Ornamental Corner Floral Arch SVGs -->
       <svg class="corner-arch left" viewBox="0 0 110 90">
         <path d="M0,0 L110,0 Q55,18 28,45 Q12,62 0,90 Z" fill="#d4a74a" opacity="0.28"/>
         <path d="M0,0 L95,0 Q45,15 20,42 Q8,55 0,78" fill="none" stroke="#f4d685" stroke-width="2"/>
@@ -1175,15 +1163,23 @@
 
       <h2 class="ceremonies-heading">विवाह सोहळा</h2>
 
-      <!-- Single Mughal Arch Card: शुभविवाह -->
+      <!-- Single Mughal Arch Card: Muhurat + Date first, then Location below Date -->
       <div class="mughal-arch-card">
         <img id="img-vivaah-mandap" class="vivaah-art-png" alt="Shubh Vivah Mandap">
 
         <div class="vivaah-card-title">शुभविवाह</div>
-        <p style="font-size: 0.9rem; color: #63382c; margin-bottom: 10px;">
+
+        <p style="font-size: 0.9rem; color: #63382c; margin-bottom: 6px;">
           मिती शके १९४८, मार्गशीर्ष कृष्ण पक्ष १२, अनुराधा नक्षत्र
         </p>
 
+        <!-- Wedding Date & Time directly below Muhurat -->
+        <div class="vivaah-date-row">
+          <span>सोमवार, दि. ०४/०१/२०२७</span>
+          <span>सकाळी १०.४२ मि.</span>
+        </div>
+
+        <!-- Location directly below Wedding Date -->
         <div class="vivaah-venue-row">
           <div>
             <strong style="font-size: 1.08rem; color: var(--text-dark); display:block;">वासवी सेलिब्रेशन हॉल</strong>
@@ -1194,12 +1190,7 @@
           </a>
         </div>
 
-        <div class="vivaah-date-row">
-          <span>सोमवार, दि. ०४/०१/२०२७</span>
-          <span>सकाळी १०.४२ मि.</span>
-        </div>
-
-        <p style="font-size: 0.94rem; color: var(--maroon); font-weight: 700; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--gold);">
+        <p style="font-size: 0.94rem; color: var(--maroon); font-weight: 700; margin-top: 6px; padding-top: 10px; border-top: 1px dashed var(--gold);">
           🍽️ स्वरूची भोज : विवाह सोहळ्यानंतर लगेच
         </p>
       </div>
@@ -1208,7 +1199,7 @@
     <!-- ==================== 7. 3D UNROLLING FAMILY & KIDS SCROLLS + LOTUS PLANT ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 3: आपले कृपाभिलाषी (Exact Requested List) -->
+      <!-- Scroll 3: आपले कृपाभिलाषी -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1236,7 +1227,7 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- Scroll 4: Kids Invite (No Header Line, Corrected Names: ईशान, ओजस) -->
+      <!-- Scroll 4: Kids Invite -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1257,7 +1248,7 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- Upright Pink Lotus Plant PNG (Matching Video 00:36 & 00:38) -->
+      <!-- Upright Pink Lotus Plant PNG -->
       <img id="img-lotus-stem" class="lotus-plant-png" alt="Lotus Floral Motif">
 
       <!-- 3 Floral Action Icons (Hashtag, Map, Calendar) -->
@@ -1294,32 +1285,33 @@
     </div>
   </div>
 
-  <!-- YouTube IFrame API for DILRUBA DILNASHEEN (Ddm7VUgw5Vw) -->
+  <!-- YouTube IFrame API for DILRUBA DILNASHEEN (Ddm7VUgw5Vw, starts at 0:18) -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    // Ensure html also starts locked so opening screen has zero scroll
+    document.documentElement.classList.add('gate-locked');
+
     // =========================================================================
-    // EASY ASSET MANAGER — PUT GITHUB FILENAMES OR DIRECT IMAGE LINKS (https://...) HERE
+    // EASY ASSET MANAGER
     // =========================================================================
     const ASSETS = {
-      ganpati:            "ganpati.png",            // Opening Ganpati PNG
-      elephant:           "elephant.png",           // Royal Elephant with howdah PNG
-      lotusBranch:        "lotus-branch.png",       // Curving pink lotus stem PNG (top opening panel)
-      mandapHeroBg:       "mandap-hero.jpg",        // Full-screen lakeside mandap background
-      courtyardPavilion:  "courtyard-pavilion.png", // Domed pavilion + tiered fountain courtyard
-      lotusDivider:       "lotus-divider.png",      // Horizontal pink lotus & gold border PNG
-      vivaahMandap:       "vivaah-mandap.png",      // Illustrated Vivaah card mandap PNG
-      lotusStem:          "lotus-stem.png",         // Tall symmetric pink lotus plant PNG
-      easelBg:            "easel-bg.jpg",           // Warm sunset palace background behind easel
-      youtubeSongId:      "Ddm7VUgw5Vw"             // https://youtu.be/Ddm7VUgw5Vw
+      ganpati:        "ganpati.png",
+      elephant:       "elephant.png",
+      lotusBranch:    "lotus-branch.png",
+      mandapHeroBg:   "mandap-hero.jpg",
+      lotusDivider:   "lotus-divider.png",
+      vivaahMandap:   "vivaah-mandap.png",
+      lotusStem:      "lotus-stem.png",
+      easelBg:        "easel-bg.jpg",
+      youtubeSongId:  "Ddm7VUgw5Vw",
+      songStartSec:   18
     };
 
-    // Built-in clean SVG Fallbacks if any local PNG hasn't been uploaded to GitHub yet
     const FALLBACKS = {
       ganpati: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='#6b141a' d='M50 10 L60 26 L40 26 Z M35 30 L65 30 L60 38 L40 38 Z M50 40 C64 40 74 49 74 62 C74 72 65 78 55 78 C49 78 46 82 49 86 C52 90 59 89 62 86 C64 88 60 94 50 94 C40 94 38 85 42 78 C32 76 26 68 26 58 C26 48 36 40 50 40 Z'/></svg>`),
-      elephant: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 105'><path d='M25,85 L25,52 C25,30 72,30 82,52 L82,85' fill='#f4e6d2' stroke='#cfa146' stroke-width='2.5'/><rect x='36' y='16' width='36' height='18' fill='#781520' stroke='#f4d685' stroke-width='2'/><path d='M32,16 Q54,2 76,16 Z' fill='#cfa146'/><rect x='36' y='40' width='36' height='24' rx='4' fill='#781520' stroke='#f4d685' stroke-width='2'/><circle cx='88' cy='46' r='13' fill='#f4e6d2' stroke='#cfa146' stroke-width='2'/><path d='M98,48 Q110,64 98,74' fill='none' stroke='#f4e6d2' stroke-width='7' stroke-linecap='round'/></svg>`),
+      elephant: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 105'><path d='M95,85 L95,52 C95,30 48,30 38,52 L38,85' fill='#f4e6d2' stroke='#cfa146' stroke-width='2.5'/><rect x='48' y='16' width='36' height='18' fill='#781520' stroke='#f4d685' stroke-width='2'/><path d='M44,16 Q66,2 88,16 Z' fill='#cfa146'/><rect x='48' y='40' width='36' height='24' rx='4' fill='#781520' stroke='#f4d685' stroke-width='2'/><circle cx='32' cy='46' r='13' fill='#f4e6d2' stroke='#cfa146' stroke-width='2'/><path d='M22,48 Q10,64 22,74' fill='none' stroke='#f4e6d2' stroke-width='7' stroke-linecap='round'/></svg>`),
       lotusBranch: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 150'><path d='M60,145 Q45,95 75,45 Q88,25 65,10' fill='none' stroke='#cfa146' stroke-width='3'/><ellipse cx='42' cy='95' rx='18' ry='8' transform='rotate(-25 42 95)' fill='#3d6b3c' stroke='#cfa146'/><ellipse cx='82' cy='70' rx='18' ry='8' transform='rotate(20 82 70)' fill='#3d6b3c' stroke='#cfa146'/><g transform='translate(58,82)'><path d='M-18,0 Q-9,-22 0,0 Q9,-22 18,0 Z' fill='#e87a90'/><path d='M-10,0 Q0,-26 10,0 Z' fill='#f9b8c6'/></g><g transform='translate(72,28) scale(0.75)'><path d='M-16,0 Q-8,-20 0,0 Q8,-20 16,0 Z' fill='#e87a90'/><path d='M-9,0 Q0,-22 9,0 Z' fill='#f9b8c6'/></g></svg>`),
       lotusDivider: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 50'><line x1='15' y1='25' x2='95' y2='25' stroke='#cfa146' stroke-width='1.5'/><line x1='165' y1='25' x2='245' y2='25' stroke='#cfa146' stroke-width='1.5'/><circle cx='95' cy='25' r='3' fill='#cfa146'/><circle cx='165' cy='25' r='3' fill='#cfa146'/><g transform='translate(130,34)'><path d='M-24,0 Q-12,-26 0,0 Q12,-26 24,0 Z' fill='#e87a90'/><path d='M-13,0 Q0,-30 13,0 Z' fill='#fbc7d4'/></g></svg>`),
-      courtyardPavilion: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 430 220'><defs><linearGradient id='poolG' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#b5d0d4'/><stop offset='100%' stop-color='#e6decb'/></linearGradient></defs><path d='M0,175 L0,115 L125,145 L125,175 Z' fill='#f3e3cc' stroke='#cfa146'/><path d='M430,175 L430,115 L305,145 L305,175 Z' fill='#f3e3cc' stroke='#cfa146'/><polygon points='75,85 62,175 88,175' fill='#2f4d29'/><polygon points='355,85 342,175 368,175' fill='#2f4d29'/><path d='M162,78 Q215,15 268,78 Z' fill='#fbf2e3' stroke='#cfa146' stroke-width='2'/><circle cx='215' cy='28' r='4' fill='#cfa146'/><rect x='155' y='78' width='120' height='9' fill='#c94b3b'/><rect x='166' y='87' width='8' height='84' fill='#fff8ec' stroke='#cfa146'/><rect x='256' y='87' width='8' height='84' fill='#fff8ec' stroke='#cfa146'/><path d='M195,170 L235,170 L225,146 L205,146 Z' fill='#e0c8a0'/><path d='M215,146 Q200,126 195,152 M215,146 Q230,126 235,152' fill='none' stroke='#ffffff' stroke-width='2.5'/><ellipse cx='215' cy='186' rx='145' ry='24' fill='url(#poolG)' stroke='#cfa146' stroke-width='2'/><circle cx='145' cy='188' r='6' fill='#f5a3b7'/><circle cx='285' cy='188' r='6' fill='#f5a3b7'/></svg>`),
       vivaahMandap: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 175'><circle cx='110' cy='90' r='76' fill='#fae8ce' stroke='#cfa146' stroke-dasharray='4 3'/><rect x='50' y='40' width='120' height='10' fill='#8b1b26'/><line x1='58' y1='50' x2='58' y2='148' stroke='#cfa146' stroke-width='6'/><line x1='162' y1='50' x2='162' y2='148' stroke='#cfa146' stroke-width='6'/><path d='M58,50 Q110,82 162,50' fill='none' stroke='#d94a38' stroke-width='7'/><rect x='76' y='128' width='24' height='16' rx='3' fill='#781520' stroke='#f4d685'/><rect x='120' y='128' width='24' height='16' rx='3' fill='#781520' stroke='#f4d685'/><polygon points='103,144 117,144 120,132 100,132' fill='#b87a28'/><path d='M106,132 Q110,115 114,132' fill='#ff7b00'/></svg>`),
       lotusStem: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 160'><line x1='70' y1='150' x2='70' y2='22' stroke='#cfa146' stroke-width='3'/><ellipse cx='42' cy='115' rx='22' ry='9' transform='rotate(-25 42 115)' fill='#3f6e3e' stroke='#cfa146'/><ellipse cx='98' cy='115' rx='22' ry='9' transform='rotate(25 98 115)' fill='#3f6e3e' stroke='#cfa146'/><g transform='translate(70,88)'><circle r='16' fill='#f28ca0'/><circle r='7' fill='#f4d685'/></g><g transform='translate(70,32) scale(0.75)'><path d='M-18,0 Q-9,-22 0,0 Q9,-22 18,0 Z' fill='#e87a90'/><path d='M-10,0 Q0,-26 10,0 Z' fill='#fbc7d4'/></g></svg>`)
     };
@@ -1336,14 +1328,12 @@
       bindImageWithFallback(document.getElementById('img-lotus-top-r'), ASSETS.lotusBranch, FALLBACKS.lotusBranch);
       bindImageWithFallback(document.getElementById('img-elephant-bot-l'), ASSETS.elephant, FALLBACKS.elephant);
       bindImageWithFallback(document.getElementById('img-elephant-bot-r'), ASSETS.elephant, FALLBACKS.elephant);
-      bindImageWithFallback(document.getElementById('img-courtyard-pavilion'), ASSETS.courtyardPavilion, FALLBACKS.courtyardPavilion);
       bindImageWithFallback(document.getElementById('img-vivaah-mandap'), ASSETS.vivaahMandap, FALLBACKS.vivaahMandap);
       bindImageWithFallback(document.getElementById('img-lotus-stem'), ASSETS.lotusStem, FALLBACKS.lotusStem);
 
       document.querySelectorAll('.js-elephant-img').forEach(el => bindImageWithFallback(el, ASSETS.elephant, FALLBACKS.elephant));
       document.querySelectorAll('.js-lotus-divider').forEach(el => bindImageWithFallback(el, ASSETS.lotusDivider, FALLBACKS.lotusDivider));
 
-      // Check & Apply Mandap Hero Background Image (hides SVG fallback if real image loads)
       const heroImgTest = new Image();
       heroImgTest.onload = () => {
         document.getElementById('hero-mandap-bg').style.backgroundImage = `url('${ASSETS.mandapHeroBg}')`;
@@ -1351,7 +1341,6 @@
       };
       heroImgTest.src = ASSETS.mandapHeroBg;
 
-      // Check & Apply Easel Background Image
       const easelImgTest = new Image();
       easelImgTest.onload = () => {
         document.getElementById('easel-footer-bg').style.backgroundImage = `url('${ASSETS.easelBg}')`;
@@ -1360,7 +1349,7 @@
     }
     applyAssets();
 
-    // ==================== YOUTUBE AUDIO PLAYER ====================
+    // ==================== YOUTUBE AUDIO PLAYER (STARTS AT 0:18) ====================
     let ytPlayer;
     let isPlaying = false;
     let gateOpened = false;
@@ -1373,22 +1362,38 @@
         playerVars: {
           'autoplay': 0,
           'controls': 0,
-          'loop': 1,
-          'playlist': ASSETS.youtubeSongId,
+          'start': ASSETS.songStartSec,
           'playsinline': 1
+        },
+        events: {
+          'onStateChange': onPlayerStateChange
         }
       });
     }
 
+    function onPlayerStateChange(event) {
+      // Loop cleanly back to 0:18 when the song ends
+      if (event.data === YT.PlayerState.ENDED) {
+        ytPlayer.seekTo(ASSETS.songStartSec, true);
+        ytPlayer.playVideo();
+      }
+    }
+
     function openInvitationGate() {
       document.getElementById('intro-gate').classList.add('opened');
+      // Unlock page scrolling smoothly as curtains open
+      document.documentElement.classList.remove('gate-locked');
+      document.body.classList.remove('gate-locked');
+      window.scrollTo(0, 0);
+
       if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
         ytPlayer.unMute();
         ytPlayer.setVolume(100);
+        ytPlayer.seekTo(ASSETS.songStartSec, true);
         ytPlayer.playVideo();
         isPlaying = true;
       }
-      // Enable mid-screen scroll unrolling once gate clears
+
       setTimeout(() => {
         gateOpened = true;
         checkScrollsAtMidScreen();
@@ -1403,6 +1408,9 @@
         fab.textContent = '🔇';
         isPlaying = false;
       } else {
+        if (ytPlayer.getCurrentTime && ytPlayer.getCurrentTime() < ASSETS.songStartSec) {
+          ytPlayer.seekTo(ASSETS.songStartSec, true);
+        }
         ytPlayer.playVideo();
         fab.textContent = '🔊';
         isPlaying = true;
@@ -1413,7 +1421,7 @@
     let ticking = false;
     function checkScrollsAtMidScreen() {
       if (!gateOpened) return;
-      const midScreenY = window.innerHeight * 0.50; // Starts unrolling when scroll reaches middle of screen
+      const midScreenY = window.innerHeight * 0.50;
       const nearBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 40);
 
       document.querySelectorAll('.observe-scroll:not(.unrolled)').forEach(scrollEl => {
