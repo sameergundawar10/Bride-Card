@@ -1422,7 +1422,7 @@
     </div>
   </div>
 
-  <!-- YouTube IFrame API for DILRUBA DILNASHEEN (Ddm7VUgw5Vw, starts at 0:18) -->
+  <!-- YouTube IFrame API for Ramayana: Mangal Rang (z_e1d5_VVfw, 0:05 to 2:22) -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     document.documentElement.classList.add('gate-locked');
@@ -1439,8 +1439,9 @@
       vivaahMandap:   "vivaah-mandap.png",
       lotusStem:      "lotus-stem.png",
       easelBg:        "easel-bg.jpg",
-      youtubeSongId:  "Ddm7VUgw5Vw",
-      songStartSec:   18
+      youtubeSongId:  "z_e1d5_VVfw",
+      songStartSec:   5,    // 0:05
+      songEndSec:     142   // 2:22
     };
 
     const FALLBACKS = {
@@ -1485,10 +1486,11 @@
     }
     applyAssets();
 
-    // ==================== YOUTUBE AUDIO PLAYER (STARTS AT 0:18) ====================
+    // ==================== YOUTUBE AUDIO PLAYER (0:05 TO 2:22) ====================
     let ytPlayer;
     let isPlaying = false;
     let gateOpened = false;
+    let endCheckTimer = null;
 
     function onYouTubeIframeAPIReady() {
       ytPlayer = new YT.Player('ytplayer', {
@@ -1499,12 +1501,24 @@
           'autoplay': 0,
           'controls': 0,
           'start': ASSETS.songStartSec,
+          'end': ASSETS.songEndSec,
           'playsinline': 1
         },
         events: {
           'onStateChange': onPlayerStateChange
         }
       });
+    }
+
+    function startEndCheck() {
+      if (endCheckTimer) clearInterval(endCheckTimer);
+      endCheckTimer = setInterval(() => {
+        if (isPlaying && ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
+          if (ytPlayer.getCurrentTime() >= ASSETS.songEndSec) {
+            ytPlayer.seekTo(ASSETS.songStartSec, true);
+          }
+        }
+      }, 400);
     }
 
     function onPlayerStateChange(event) {
@@ -1526,6 +1540,7 @@
         ytPlayer.seekTo(ASSETS.songStartSec, true);
         ytPlayer.playVideo();
         isPlaying = true;
+        startEndCheck();
       }
 
       setTimeout(() => {
@@ -1542,12 +1557,14 @@
         fab.textContent = '🔇';
         isPlaying = false;
       } else {
-        if (ytPlayer.getCurrentTime && ytPlayer.getCurrentTime() < ASSETS.songStartSec) {
+        const cur = ytPlayer.getCurrentTime ? ytPlayer.getCurrentTime() : 0;
+        if (cur < ASSETS.songStartSec || cur >= ASSETS.songEndSec) {
           ytPlayer.seekTo(ASSETS.songStartSec, true);
         }
         ytPlayer.playVideo();
         fab.textContent = '🔊';
         isPlaying = true;
+        startEndCheck();
       }
     }
 
