@@ -125,7 +125,6 @@
       pointer-events: none;
     }
 
-    /* Top Maroon Panel with Mirrored Pink Lotus Stems */
     .gate-top {
       flex: 0 0 28%;
       min-height: 0;
@@ -164,7 +163,6 @@
       transform: scaleX(-1);
     }
 
-    /* Middle Cream Damask Band */
     .gate-middle {
       flex: 1 1 44%;
       min-height: 0;
@@ -206,7 +204,6 @@
       margin-bottom: 14px;
     }
 
-    /* Ornate Maroon Button */
     .royale-pill-btn {
       background: linear-gradient(180deg, #8b1b26 0%, #5e0d15 100%);
       color: #fff;
@@ -228,7 +225,6 @@
       50% { transform: scale(1.04); }
     }
 
-    /* Bottom Maroon Panel with Royal Elephants Facing Inward */
     .gate-bottom {
       flex: 0 0 28%;
       min-height: 0;
@@ -254,7 +250,6 @@
       filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
     }
 
-    /* Opening Animation */
     #intro-gate.opened .gate-top {
       transform: translateY(-108%);
     }
@@ -266,7 +261,7 @@
       transform: scale(0.92);
     }
 
-    /* ==================== 2. FULL-BLEED LAKESIDE MANDAP HERO ==================== */
+    /* ==================== 2. FULL-BLEED LAKESIDE MANDAP HERO (HIGHLIGHTED NAMES) ==================== */
     .mandap-hero {
       min-height: 98vh;
       min-height: 98dvh;
@@ -276,7 +271,7 @@
       align-items: center;
       justify-content: space-between;
       text-align: center;
-      padding: 40px 18px 26px;
+      padding: 26px 14px 26px;
       background-color: #f6e4d2;
       background-size: cover;
       background-position: center bottom;
@@ -289,7 +284,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(255, 240, 232, 0.65) 0%, rgba(255, 245, 235, 0.08) 38%, rgba(247, 235, 217, 0) 78%, var(--cream) 100%);
+        linear-gradient(180deg, rgba(255, 245, 238, 0.72) 0%, rgba(255, 245, 235, 0.14) 36%, rgba(247, 235, 217, 0) 78%, var(--cream) 100%);
       pointer-events: none;
       z-index: 1;
     }
@@ -297,33 +292,56 @@
     .hero-top-content {
       position: relative;
       z-index: 2;
-      margin-top: 6px;
+      margin-top: 4px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero-invocations {
-      font-size: 0.96rem;
-      color: var(--maroon);
+      font-size: 0.94rem;
+      color: #6b0d17;
       font-weight: 700;
-      line-height: 1.6;
-      text-shadow: 0 1px 10px rgba(255, 255, 255, 0.9);
+      line-height: 1.55;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 1px 6px rgba(255, 255, 255, 0.95);
     }
 
+    /* Highlighted English Couple Names: Rich Royal Wine + Crisp Pearl Halo */
     .hero-names-en {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-weight: 600;
-      font-size: 2.95rem;
-      color: #4a1219;
-      line-height: 1.1;
-      margin: 10px 0 6px;
-      text-shadow: 0 2px 14px rgba(255, 255, 255, 0.95);
+      font-weight: 700;
+      font-size: clamp(2.15rem, 9.2vw, 2.7rem);
+      color: #8c0b1a;
+      line-height: 1.15;
+      margin: 10px 0 10px;
+      letter-spacing: 0.4px;
+      text-shadow:
+        0 0 14px rgba(255, 255, 255, 1),
+        0 0 26px rgba(255, 248, 230, 0.98),
+        0 2px 4px rgba(255, 255, 255, 0.95),
+        0 3px 10px rgba(94, 13, 21, 0.28);
+    }
+
+    /* Highlighted Marathi Names Ribbon Pill so it Pops Cleanly over the Mandap */
+    .hero-names-mr-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(107, 15, 25, 0.92) 0%, rgba(72, 8, 15, 0.94) 100%);
+      border: 1.5px solid var(--gold-bright);
+      border-radius: 32px;
+      padding: 7px 18px;
+      box-shadow: 0 6px 18px rgba(45, 5, 10, 0.35), 0 0 0 3px rgba(255, 250, 240, 0.45);
+      max-width: 96%;
     }
 
     .hero-names-mr {
-      font-family: 'Rozha One', serif;
-      font-size: 1.65rem;
-      color: var(--maroon);
-      text-shadow: 0 2px 12px rgba(255, 255, 255, 0.95);
+      font-family: 'Rozha One', 'Noto Serif Devanagari', serif;
+      font-size: clamp(1.12rem, 4.7vw, 1.38rem);
+      color: #ffe8a3;
+      letter-spacing: 0.4px;
+      line-height: 1.3;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
     }
 
     .hero-svg-fallback {
@@ -340,7 +358,7 @@
       z-index: 2;
       width: 94%;
       margin: 0 auto;
-      background: rgba(251, 244, 232, 0.9);
+      background: rgba(251, 244, 232, 0.92);
       backdrop-filter: blur(4px);
       border: 1.5px solid var(--gold);
       border-radius: 12px;
@@ -349,12 +367,12 @@
       line-height: 1.75;
       color: var(--text-dark);
       font-weight: 600;
-      box-shadow: 0 8px 22px rgba(70, 20, 20, 0.12);
+      box-shadow: 0 8px 22px rgba(70, 20, 20, 0.14);
     }
 
     /* ==================== 3. 3D UNROLLING MAROON & GOLD SCROLLS ==================== */
     .scroll-section {
-      padding: 34px 16px;
+      padding: 34px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -364,7 +382,7 @@
 
     .royal-scroll {
       width: 100%;
-      max-width: 380px;
+      max-width: 390px;
       position: relative;
       cursor: pointer;
     }
@@ -397,7 +415,7 @@
     .scroll-roller::after { right: -9px; }
 
     .scroll-body-wrapper {
-      width: 90%;
+      width: 93%;
       margin: -3px auto;
       display: grid;
       grid-template-rows: 0fr;
@@ -420,7 +438,7 @@
     }
 
     .scroll-content-pad {
-      padding: 26px 18px 24px;
+      padding: 24px 12px 22px;
       text-align: center;
       color: #fff;
       opacity: 0;
@@ -438,7 +456,7 @@
       outline: 1px dotted rgba(244, 214, 133, 0.45);
       outline-offset: -6px;
       border-radius: 6px;
-      padding: 20px 14px;
+      padding: 18px 10px;
     }
 
     .scroll-tag {
@@ -452,9 +470,18 @@
 
     .scroll-title {
       font-family: 'Rozha One', serif;
-      font-size: 1.85rem;
+      font-size: 1.75rem;
       color: #f9e3a4;
       margin-bottom: 10px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+    }
+
+    .scroll-title-single {
+      font-family: 'Rozha One', 'Noto Serif Devanagari', serif;
+      font-size: clamp(1.22rem, 5.2vw, 1.52rem);
+      color: #f9e3a4;
+      margin-bottom: 14px;
+      white-space: nowrap;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
     }
 
@@ -464,8 +491,38 @@
       color: #faeede;
     }
 
+    /* Clean One-by-One Family Names List (Fits Strictly Inside Border) */
+    .family-list-clean {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+    }
+
+    .family-name-line {
+      font-size: clamp(0.68rem, 3.05vw, 0.84rem);
+      line-height: 1.45;
+      color: #faeede;
+      white-space: nowrap;
+      padding: 3px 4px;
+      width: 100%;
+      border-bottom: 1px dashed rgba(244, 214, 133, 0.16);
+    }
+
+    .family-name-line.no-border {
+      border-bottom: none;
+    }
+
+    .family-name-highlight {
+      color: var(--gold-bright);
+      font-weight: 700;
+      font-size: clamp(0.88rem, 3.7vw, 1.04rem);
+      margin-top: 4px;
+    }
+
     .scroll-lotus-ornament {
-      width: 170px;
+      width: 165px;
       max-width: 85%;
       height: auto;
       margin: 14px auto 0;
@@ -488,7 +545,7 @@
       background: rgba(255, 248, 236, 0.55);
     }
 
-    /* ==================== 4. REVEAL THE DATE SECTION (NO COURTYARD PAVILION) ==================== */
+    /* ==================== 4. REVEAL THE DATE SECTION ==================== */
     .date-courtyard-section {
       padding: 32px 0 24px;
       text-align: center;
@@ -811,19 +868,82 @@
       flex-shrink: 0;
     }
 
-    /* ==================== 7. LOTUS PLANT MOTIF, 3 ICONS & FINAL SUNSET EASEL ==================== */
+    /* ==================== 7. LOTUS PLANT, MUHURTHAM COUNTDOWN & 3 ICONS ==================== */
     .lotus-plant-png {
-      width: 175px;
+      width: 140px;
       height: auto;
-      margin: -10px auto 6px;
+      margin: -6px auto 0;
       display: block;
+    }
+
+    /* Royal Countdown Card (Placed Mid Between Lotus Motif & Action Icons) */
+    .muhurtham-countdown-card {
+      width: 100%;
+      max-width: 385px;
+      background: radial-gradient(circle at center, #7f1521 0%, #4d0a11 100%);
+      border: 2px solid var(--gold);
+      outline: 1px dashed rgba(244, 214, 133, 0.45);
+      outline-offset: -6px;
+      border-radius: 16px;
+      padding: 22px 14px 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(70, 10, 16, 0.28);
+    }
+
+    .cd-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .cd-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.18rem;
+      color: #faeede;
+      margin-bottom: 16px;
+    }
+
+    .cd-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .cd-cell {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(244, 214, 133, 0.45);
+      border-radius: 10px;
+      padding: 10px 4px;
+    }
+
+    .cd-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      line-height: 1.1;
+    }
+
+    .cd-unit {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #f5e2c8;
+      margin-top: 3px;
     }
 
     .royale-icon-row {
       display: flex;
       justify-content: center;
       gap: 26px;
-      margin: 14px 0 28px;
+      margin: 4px 0 22px;
     }
 
     .floral-icon-btn {
@@ -842,6 +962,7 @@
       box-shadow: 0 6px 16px rgba(94, 13, 21, 0.12);
     }
 
+    /* ==================== 8. FINAL SUNSET EASEL FOOTER ==================== */
     .easel-footer {
       position: relative;
       padding: 58px 20px 68px;
@@ -941,13 +1062,11 @@
 
     <!-- ==================== 1. OPENING GATE (FULL SCREEN, NO SCROLL, ELEPHANTS FACING EACH OTHER) ==================== -->
     <div id="intro-gate">
-      <!-- Top Deep Maroon Damask Panel with Mirrored Lotus Motifs -->
       <div class="gate-top maroon-damask">
         <img id="img-lotus-top-l" class="gate-lotus-img" alt="Lotus Motif">
         <img id="img-lotus-top-r" class="gate-lotus-img mirror-x" alt="Lotus Motif">
       </div>
 
-      <!-- Center Cream Band with Ganpati PNG & Tap to Open -->
       <div class="gate-middle">
         <img id="img-ganpati" class="ganpati-png" alt="Shri Ganeshaya Namah">
         <div class="gate-invocations">
@@ -962,7 +1081,6 @@
         <button class="royale-pill-btn" onclick="openInvitationGate()">Tap to open</button>
       </div>
 
-      <!-- Bottom Deep Maroon Damask Panel (Left Elephant Mirrored to Face Right, Right Elephant Faces Left) -->
       <div class="gate-bottom maroon-damask">
         <img id="img-elephant-bot-l" class="gate-elephant-img mirror-x" alt="Royal Elephant">
         <img id="img-elephant-bot-r" class="gate-elephant-img" alt="Royal Elephant">
@@ -971,7 +1089,7 @@
 
     <!-- ==================== 2. LAKESIDE MANDAP HERO SECTION ==================== -->
     <section class="mandap-hero" id="hero-mandap-bg">
-      <!-- Built-in SVG Lakeside Mandap Fallback (Auto-replaced when mandap-hero.jpg is present) -->
+      <!-- Built-in SVG Lakeside Mandap Fallback -->
       <svg class="hero-svg-fallback" id="hero-svg-fallback" viewBox="0 0 430 760" preserveAspectRatio="xMidYMax slice">
         <defs>
           <linearGradient id="skySunset" x1="0" y1="0" x2="0" y2="1">
@@ -1005,7 +1123,9 @@
           ।। श्री राजराजेश्वर प्रसन्न ।।
         </div>
         <h1 class="hero-names-en">Priyanka &amp; Kaustubh</h1>
-        <div class="hero-names-mr">चि. सौ. कां. प्रियंका आणि चि. कौस्तुभ</div>
+        <div class="hero-names-mr-badge">
+          <div class="hero-names-mr">चि. सौ. कां. प्रियंका आणि चि. कौस्तुभ</div>
+        </div>
       </div>
 
       <div class="poetic-blessing-card">
@@ -1073,7 +1193,6 @@
       <img class="lotus-crest-png js-lotus-divider" alt="Lotus Crest">
 
       <div class="date-row-with-elephants">
-        <!-- Elephants facing inward toward the date spinner -->
         <img class="side-elephant-png mirror-x js-elephant-img" alt="Royal Elephant">
 
         <div class="slot-boxes">
@@ -1110,13 +1229,11 @@
 
       <div class="red-string-stage">
         <div class="carousel-track" id="photoCarousel">
-          <!-- Photo 1 -->
           <div class="maroon-hanging-frame">
             <img src="1000682458.jpg" alt="Priyanka & Kaustubh" class="frame-img">
             <div class="frame-hashtag">#howitstarted ✨</div>
           </div>
 
-          <!-- Poetic Quote Frame -->
           <div class="maroon-hanging-frame">
             <div class="frame-quote-inner">
               “नियतीने बांधली दोन मनाची गाठ, विश्वासाची सोबत अन् प्रेमाची वाट, प्रियंका आणि कौस्तुभ यांच्या शुभमिलनाने सुरू होते नव्या आयुष्याची सुंदर पहाट!”
@@ -1124,19 +1241,16 @@
             <div class="frame-hashtag">#PriyankaWedsKaustubh</div>
           </div>
 
-          <!-- Photo 2 -->
           <div class="maroon-hanging-frame">
             <img src="1000682460.jpg" alt="Priyanka & Kaustubh Together" class="frame-img">
             <div class="frame-hashtag">शुभमिलन 💫</div>
           </div>
 
-          <!-- Photo 3: Bride -->
           <div class="maroon-hanging-frame">
             <img src="1000796104.jpg" alt="Chi. Sau. Kan. Priyanka" class="frame-img">
             <div class="frame-hashtag">चि. सौ. कां. प्रियंका 🌸</div>
           </div>
 
-          <!-- Photo 4: Groom -->
           <div class="maroon-hanging-frame">
             <img src="1000672483.jpg" alt="Chi. Kaustubh" class="frame-img">
             <div class="frame-hashtag">चि. कौस्तुभ 🤵</div>
@@ -1163,7 +1277,6 @@
 
       <h2 class="ceremonies-heading">विवाह सोहळा</h2>
 
-      <!-- Single Mughal Arch Card: Muhurat + Date first, then Location below Date -->
       <div class="mughal-arch-card">
         <img id="img-vivaah-mandap" class="vivaah-art-png" alt="Shubh Vivah Mandap">
 
@@ -1173,13 +1286,11 @@
           मिती शके १९४८, मार्गशीर्ष कृष्ण पक्ष १२, अनुराधा नक्षत्र
         </p>
 
-        <!-- Wedding Date & Time directly below Muhurat -->
         <div class="vivaah-date-row">
           <span>सोमवार, दि. ०४/०१/२०२७</span>
           <span>सकाळी १०.४२ मि.</span>
         </div>
 
-        <!-- Location directly below Wedding Date -->
         <div class="vivaah-venue-row">
           <div>
             <strong style="font-size: 1.08rem; color: var(--text-dark); display:block;">वासवी सेलिब्रेशन हॉल</strong>
@@ -1196,28 +1307,27 @@
       </div>
     </section>
 
-    <!-- ==================== 7. 3D UNROLLING FAMILY & KIDS SCROLLS + LOTUS PLANT ==================== -->
+    <!-- ==================== 7. 3D UNROLLING FAMILY & KIDS SCROLLS + COUNTDOWN + 3 ICONS ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 3: आपले कृपाभिलाषी -->
+      <!-- Scroll 3: आपले कृपाभिलाषी (Clean One-by-One Stack, Properly Fitted Inside Border) -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
           <div class="scroll-body-inner">
             <div class="scroll-content-pad">
               <div class="scroll-inner-frame">
-                <div class="scroll-title" style="font-size: 1.65rem;">❖ आपले कृपाभिलाषी ❖</div>
-                <div class="scroll-text" style="font-size: 0.94rem; line-height: 1.9;">
-                  श्री. विजयराव रामचंद्र गुंडावार<br>
-                  • सौ. विनाताई श्री. वसंतराव रामचंद्र गुंडावार<br>
-                  • सौ. आशाताई श्री. प्रकाशराव रामचंद्र गुंडावार • सौ. प्रिती श्री. अमोल विजयराव गुंडावार<br>
-                  • सौ. मेघा श्री. अंकुश विजयराव गुंडावार<br>
-                  • सौ. नलिनी श्री. आनंद विजयराव गुंडावार<br>
-                  • सौ. रोहीणी श्री. निलेश वसंतराव गुंडावार<br><br>
-                  चि. समीर प्रकाशराव गुंडावार<br>
-                  <strong style="color: var(--gold-bright); display: block; margin-top: 4px; font-size: 1.08rem;">
-                    आणि समस्त गुंडावार परिवार
-                  </strong>
+                <div class="scroll-title-single">❖ आपले कृपाभिलाषी ❖</div>
+                <div class="family-list-clean">
+                  <div class="family-name-line">श्री. विजयराव रामचंद्र गुंडावार</div>
+                  <div class="family-name-line">सौ. विनाताई व श्री. वसंतराव रामचंद्र गुंडावार</div>
+                  <div class="family-name-line">सौ. आशाताई व श्री. प्रकाशराव रामचंद्र गुंडावार</div>
+                  <div class="family-name-line">सौ. प्रिती व श्री. अमोल विजयराव गुंडावार</div>
+                  <div class="family-name-line">सौ. मेघा व श्री. अंकुश विजयराव गुंडावार</div>
+                  <div class="family-name-line">सौ. नलिनी व श्री. आनंद विजयराव गुंडावार</div>
+                  <div class="family-name-line">सौ. रोहीणी व श्री. निलेश वसंतराव गुंडावार</div>
+                  <div class="family-name-line no-border" style="margin-top: 4px;">चि. समीर प्रकाशराव गुंडावार</div>
+                  <div class="family-name-highlight">आणि समस्त गुंडावार परिवार</div>
                 </div>
                 <img class="scroll-lotus-ornament js-lotus-divider" alt="Floral Divider">
               </div>
@@ -1234,7 +1344,7 @@
           <div class="scroll-body-inner">
             <div class="scroll-content-pad">
               <div class="scroll-inner-frame">
-                <div class="scroll-title" style="font-size: 1.48rem;">
+                <div class="scroll-title" style="font-size: 1.44rem;">
                   “आमच्या आत्याच्या लग्नाला यायचं बरं कां...!”
                 </div>
                 <p class="scroll-text">
@@ -1250,6 +1360,30 @@
 
       <!-- Upright Pink Lotus Plant PNG -->
       <img id="img-lotus-stem" class="lotus-plant-png" alt="Lotus Floral Motif">
+
+      <!-- COUNTING DOWN TO THE MUHURTHAM (Added in the Middle) -->
+      <div class="muhurtham-countdown-card">
+        <div class="cd-eyebrow">COUNTING DOWN TO THE MUHURTHAM</div>
+        <div class="cd-subtitle">Time until the auspicious moment</div>
+        <div class="cd-grid">
+          <div class="cd-cell">
+            <div class="cd-num" id="cd-days">00</div>
+            <div class="cd-unit">Days</div>
+          </div>
+          <div class="cd-cell">
+            <div class="cd-num" id="cd-hours">00</div>
+            <div class="cd-unit">Hours</div>
+          </div>
+          <div class="cd-cell">
+            <div class="cd-num" id="cd-mins">00</div>
+            <div class="cd-unit">Mins</div>
+          </div>
+          <div class="cd-cell">
+            <div class="cd-num" id="cd-secs">00</div>
+            <div class="cd-unit">Secs</div>
+          </div>
+        </div>
+      </div>
 
       <!-- 3 Floral Action Icons (Hashtag, Map, Calendar) -->
       <div class="royale-icon-row">
@@ -1288,7 +1422,6 @@
   <!-- YouTube IFrame API for DILRUBA DILNASHEEN (Ddm7VUgw5Vw, starts at 0:18) -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    // Ensure html also starts locked so opening screen has zero scroll
     document.documentElement.classList.add('gate-locked');
 
     // =========================================================================
@@ -1372,7 +1505,6 @@
     }
 
     function onPlayerStateChange(event) {
-      // Loop cleanly back to 0:18 when the song ends
       if (event.data === YT.PlayerState.ENDED) {
         ytPlayer.seekTo(ASSETS.songStartSec, true);
         ytPlayer.playVideo();
@@ -1381,7 +1513,6 @@
 
     function openInvitationGate() {
       document.getElementById('intro-gate').classList.add('opened');
-      // Unlock page scrolling smoothly as curtains open
       document.documentElement.classList.remove('gate-locked');
       document.body.classList.remove('gate-locked');
       window.scrollTo(0, 0);
@@ -1478,6 +1609,30 @@
         document.getElementById('muhuratNote').classList.add('show');
       }, 1300);
     }
+
+    // ==================== LIVE COUNTDOWN TO MUHURTHAM (04 JAN 2027, 10:42 AM IST) ====================
+    const muhurthamDate = new Date("2027-01-04T10:42:00+05:30").getTime();
+    function updateMuhurthamCountdown() {
+      const diff = muhurthamDate - new Date().getTime();
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent = '00';
+        document.getElementById('cd-secs').textContent = '00';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+    }
+    updateMuhurthamCountdown();
+    setInterval(updateMuhurthamCountdown, 1000);
 
     // ==================== HANGING PHOTO CAROUSEL ARROWS ====================
     function slideGallery(dir) {
