@@ -91,10 +91,14 @@
       overflow: hidden;
       pointer-events: auto;
       background: #2a0a0e;
+      /* Added transition for opacity to fade out the background */
+      transition: opacity 0.8s ease 0.9s, visibility 0.8s ease 0.9s;
     }
 
     #gate-overlay.opened {
       pointer-events: none;
+      opacity: 0; /* Fades out the dark background */
+      visibility: hidden; /* Ensures it's completely gone */
     }
 
     .gate-panel {
