@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* Mobile Container */
     .mobile-container {
       width: 100%;
       max-width: 430px;
@@ -47,7 +46,6 @@
       box-shadow: 0 0 50px rgba(0,0,0,0.85);
     }
 
-    /* Floating Audio Control */
     .music-btn {
       position: fixed;
       top: 16px;
@@ -79,8 +77,8 @@
       z-index: -1;
     }
 
-    /* ==================== 1. CURTAIN GATE INTRO OVERLAY ==================== */
-    #curtain-overlay {
+    /* ==================== 1. ROYAL PALACE GATE INTRO OVERLAY ==================== */
+    #gate-overlay {
       position: fixed;
       top: 0;
       left: 50%;
@@ -92,18 +90,19 @@
       display: flex;
       overflow: hidden;
       pointer-events: auto;
+      background: #2a0a0e;
     }
 
-    #curtain-overlay.opened {
+    #gate-overlay.opened {
       pointer-events: none;
     }
 
-    .curtain-panel {
+    .gate-panel {
       width: 50%;
       height: 100%;
       background: radial-gradient(circle at center, #7a1820 0%, #4d0b10 100%);
       position: relative;
-      transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+      transition: transform 1.6s cubic-bezier(0.77, 0, 0.175, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -111,23 +110,22 @@
       border-right: 1px solid rgba(212, 167, 74, 0.3);
     }
 
-    .curtain-left { align-items: flex-start; }
-    .curtain-right {
+    .gate-left { align-items: flex-start; }
+    .gate-right {
       align-items: flex-end;
       border-left: 1px solid rgba(212, 167, 74, 0.3);
       border-right: none;
     }
 
-    #curtain-overlay.opened .curtain-left { transform: translateX(-105%); }
-    #curtain-overlay.opened .curtain-right { transform: translateX(105%); }
+    #gate-overlay.opened .gate-left { transform: translateX(-105%); }
+    #gate-overlay.opened .gate-right { transform: translateX(105%); }
 
     .hanging-lotus {
       font-size: 1.8rem;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
-    /* Center White/Cream Invitation Strip */
-    .center-invite-strip {
+    .center-gate-strip {
       position: absolute;
       top: 0;
       left: 50%;
@@ -149,7 +147,7 @@
       transition: opacity 0.65s ease, transform 0.8s ease;
     }
 
-    #curtain-overlay.opened .center-invite-strip {
+    #gate-overlay.opened .center-gate-strip {
       opacity: 0;
       transform: translateX(-50%) scale(0.92);
     }
@@ -196,7 +194,7 @@
       50% { transform: scale(1.05); }
     }
 
-    /* ==================== 2. PASTEL-SKY LAKESIDE MANDAP HERO ==================== */
+    /* ==================== 2. ROYAL LAKESIDE MANDAP HERO ==================== */
     .mandap-hero {
       min-height: 96vh;
       background: linear-gradient(180deg, #9ac3e4 0%, #d4e2eb 30%, #f2e2d5 60%, var(--cream) 100%);
@@ -242,7 +240,6 @@
       text-shadow: 0 1px 10px rgba(255,255,255,0.85);
     }
 
-    /* Full-Bleed Lakeside Mandap Scene */
     .mandap-scene-wrap {
       width: 100%;
       margin: 8px 0 10px;
@@ -385,7 +382,7 @@
       color: var(--gold-bright);
     }
 
-    /* ==================== 4. "REVEAL THE DATE" SLOT MACHINE ==================== */
+    /* ==================== 4. REVEAL THE DATE SLOT MACHINE ==================== */
     .date-reveal-section {
       padding: 40px 18px;
       text-align: center;
@@ -767,10 +764,9 @@
 
   <div class="mobile-container">
 
-    <!-- ==================== 1. MAROON CURTAIN GATE OVERLAY ==================== -->
-    <div id="curtain-overlay">
-      <!-- Left Curtain -->
-      <div class="curtain-panel curtain-left">
+    <!-- ==================== 1. ROYAL PALACE GATE INTRO OVERLAY ==================== -->
+    <div id="gate-overlay">
+      <div class="gate-panel gate-left">
         <div class="hanging-lotus">🌺🌿</div>
         <svg width="95" height="82" viewBox="0 0 100 85">
           <path d="M25,65 L25,40 C25,22 65,22 72,40 L72,65" fill="#f5e6d3" stroke="#d4a74a" stroke-width="2"/>
@@ -782,8 +778,7 @@
         </svg>
       </div>
 
-      <!-- Center White/Cream Strip -->
-      <div class="center-invite-strip">
+      <div class="center-gate-strip">
         <svg class="ganesh-sketch" viewBox="0 0 100 100">
           <path d="M50 12 L60 28 L40 28 Z M35 32 L65 32 L60 40 L40 40 Z M50 42 C64 42 74 50 74 62 C74 72 65 78 55 78 C49 78 46 82 49 86 C52 90 59 89 62 86 C64 88 60 94 50 94 C40 94 38 85 42 78 C32 76 26 68 26 58 C26 48 36 42 50 42 Z"/>
         </svg>
@@ -796,11 +791,10 @@
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ।।<br><br>
           आपणास सहकुटुंब सहपरिवार आग्रहाचे सस्नेह निमंत्रण
         </p>
-        <button class="tap-open-btn" onclick="openCurtains()">Tap to open</button>
+        <button class="tap-open-btn" onclick="openGate()">Tap to open</button>
       </div>
 
-      <!-- Right Curtain -->
-      <div class="curtain-panel curtain-right">
+      <div class="gate-panel gate-right">
         <div class="hanging-lotus">🌿🌺</div>
         <svg width="95" height="82" viewBox="0 0 100 85" style="transform: scaleX(-1);">
           <path d="M25,65 L25,40 C25,22 65,22 72,40 L72,65" fill="#f5e6d3" stroke="#d4a74a" stroke-width="2"/>
@@ -817,7 +811,7 @@
     <div id="yt-hidden-player"><div id="ytplayer"></div></div>
     <div class="music-btn" id="musicToggleBtn" onclick="toggleSong()" aria-label="संगीत चालू किंवा बंद करा">🎵</div>
 
-    <!-- ==================== 2. PASTEL-SKY GOLDEN LAKESIDE MANDAP HERO ==================== -->
+    <!-- ==================== 2. ROYAL LAKESIDE MANDAP HERO ==================== -->
     <section class="mandap-hero">
       <div class="hero-sky-text">
         <div class="hero-invocations">
@@ -828,11 +822,9 @@
         <div class="hero-marathi-names">चि. सौ. कां. प्रियंका आणि चि. कौस्तुभ</div>
       </div>
 
-      <!-- LUXURIOUS PALACE & LAKESIDE MANDAP (Designed to match reference image) -->
       <div class="mandap-scene-wrap">
         <svg viewBox="0 0 430 340" width="100%" style="display:block;">
           <defs>
-            <!-- Sky & Glow Gradients -->
             <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#a4cde8"/>
               <stop offset="40%" stop-color="#dbe7e6"/>
@@ -844,15 +836,11 @@
               <stop offset="40%" stop-color="#ffdfa3" stop-opacity="0.8"/>
               <stop offset="100%" stop-color="#ffdfa3" stop-opacity="0"/>
             </radialGradient>
-            
-            <!-- Water & Reflection Gradients -->
             <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#e6d9c9"/>
               <stop offset="30%" stop-color="#c2c7c6"/>
               <stop offset="100%" stop-color="#e8edeb"/>
             </linearGradient>
-            
-            <!-- Palace Gradients -->
             <linearGradient id="marbleGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="#ffffff"/>
               <stop offset="70%" stop-color="#fdf6e8"/>
@@ -869,37 +857,27 @@
             </linearGradient>
           </defs>
 
-          <!-- 1. SKY & SUNSET GLOW -->
           <rect x="0" y="0" width="430" height="250" fill="url(#skyGrad)"/>
           <circle cx="215" cy="170" r="150" fill="url(#sunGlow)"/>
           
-          <!-- Soft Clouds -->
           <ellipse cx="80" cy="60" rx="70" ry="20" fill="#ffffff" opacity="0.3"/>
           <ellipse cx="350" cy="70" rx="80" ry="25" fill="#ffffff" opacity="0.25"/>
           <ellipse cx="215" cy="90" rx="100" ry="15" fill="#fff4e6" opacity="0.4"/>
 
-          <!-- 2. DISTANT BACKGROUND (Trees & Mist) -->
           <path d="M0,180 Q100,160 200,175 Q300,190 430,170 L430,200 L0,200 Z" fill="#b7c4c7" opacity="0.4"/>
           
-          <!-- 3. PALACE COLONNADES (Left & Right Perspective) -->
-          <!-- Left Side -->
           <g opacity="0.95">
-            <!-- Base pathway -->
             <path d="M0,180 L160,210 L160,240 L0,250 Z" fill="#fdf8ef"/>
-            <!-- Roof -->
             <path d="M0,140 L160,185 L160,195 L0,155 Z" fill="#fffdfa"/>
-            <!-- Pillars & Glowing Arches -->
             <path d="M10,175 L10,160 Q25,145 40,162 L40,182 Z" fill="url(#goldGlow)" opacity="0.8"/>
             <path d="M50,180 L50,168 Q65,155 80,170 L80,188 Z" fill="url(#goldGlow)" opacity="0.8"/>
             <path d="M90,185 L90,176 Q105,165 120,178 L120,194 Z" fill="url(#goldGlow)" opacity="0.8"/>
             <path d="M130,190 L130,183 Q145,174 160,185 L160,200 Z" fill="url(#goldGlow)" opacity="0.8"/>
-            <!-- Thin pillars -->
             <rect x="40" y="162" width="6" height="30" fill="#fff" opacity="0.8"/>
             <rect x="80" y="170" width="6" height="26" fill="#fff" opacity="0.8"/>
             <rect x="120" y="178" width="6" height="22" fill="#fff" opacity="0.8"/>
           </g>
 
-          <!-- Right Side -->
           <g opacity="0.95">
             <path d="M430,180 L270,210 L270,240 L430,250 Z" fill="#fdf8ef"/>
             <path d="M430,140 L270,185 L270,195 L430,155 Z" fill="#fffdfa"/>
@@ -912,46 +890,30 @@
             <rect x="304" y="178" width="6" height="22" fill="#fff" opacity="0.8"/>
           </g>
 
-          <!-- 4. ELEGANT CYPRESS TREES -->
           <g>
-            <!-- Left -->
             <polygon points="30,120 10,210 50,210" fill="#2d4728"/>
             <polygon points="30,120 22,210 38,210" fill="#3d5c35"/>
             <polygon points="90,145 75,210 105,210" fill="#2d4728"/>
             <polygon points="90,145 84,210 96,210" fill="#3d5c35"/>
-            <!-- Right -->
             <polygon points="400,120 380,210 420,210" fill="#2d4728"/>
             <polygon points="400,120 392,210 408,210" fill="#3d5c35"/>
             <polygon points="340,145 325,210 355,210" fill="#2d4728"/>
             <polygon points="340,145 334,210 346,210" fill="#3d5c35"/>
           </g>
 
-          <!-- 5. CENTRAL ROYAL MANDAP -->
           <g id="royal-mandap">
-            <!-- Glowing Mandap Base Steps -->
             <rect x="130" y="215" width="170" height="8" fill="#fff8ee" stroke="#e0cba8"/>
             <rect x="140" y="207" width="150" height="8" fill="#fffdfa" stroke="#e0cba8"/>
-            
-            <!-- Warm Light Glow from Inside -->
             <rect x="160" y="90" width="110" height="117" fill="#ffefd1" opacity="0.9"/>
-            
-            <!-- Inner Archway -->
             <path d="M185,207 L185,140 Q215,105 245,140 L245,207 Z" fill="#fefaf2" stroke="#e0cba8"/>
-
-            <!-- Bride & Groom Silhouettes + Holy Fire -->
             <rect x="180" y="192" width="22" height="12" rx="3" fill="#7c1d26" stroke="#d4a74a"/>
             <rect x="228" y="192" width="22" height="12" rx="3" fill="#7c1d26" stroke="#d4a74a"/>
             <path d="M210,204 L220,204 L217,192 L223,186 L207,186 L213,192 Z" fill="#d49b35" stroke="#8a5a0d"/>
             <circle cx="215" cy="182" r="4" fill="#ffaa00"/>
-
-            <!-- Flowing White & Gold Drapes -->
             <path d="M164,94 Q190,125 168,207 L156,207 L156,94 Z" fill="url(#drapeGrad)" stroke="#d4a74a"/>
             <path d="M266,94 Q240,125 262,207 L274,207 L274,94 Z" fill="url(#drapeGrad)" stroke="#d4a74a"/>
-            <!-- Maroon Accent Drapes -->
             <path d="M164,94 Q198,115 168,160" fill="none" stroke="#8c1c24" stroke-width="6" stroke-linecap="round"/>
             <path d="M266,94 Q232,115 262,160" fill="none" stroke="#8c1c24" stroke-width="6" stroke-linecap="round"/>
-
-            <!-- Hanging Floral Strings in Center -->
             <path d="M180,98 Q215,128 250,98" fill="none" stroke="#b87d24" stroke-width="2"/>
             <line x1="195" y1="108" x2="195" y2="148" stroke="#8c5a0e" stroke-width="1.5" stroke-dasharray="3 2"/>
             <line x1="215" y1="115" x2="215" y2="155" stroke="#8c5a0e" stroke-width="1.5" stroke-dasharray="3 2"/>
@@ -959,25 +921,16 @@
             <circle cx="195" cy="150" r="3" fill="#d4a74a"/>
             <circle cx="215" cy="157" r="3.5" fill="#d4a74a"/>
             <circle cx="235" cy="150" r="3" fill="#d4a74a"/>
-
-            <!-- Pillars -->
             <rect x="152" y="90" width="10" height="117" fill="url(#marbleGrad)" stroke="#d4b88c"/>
             <rect x="268" y="90" width="10" height="117" fill="url(#marbleGrad)" stroke="#d4b88c"/>
-            <!-- Marigold Garlands on Pillars -->
             <line x1="157" y1="94" x2="157" y2="205" stroke="#f09a29" stroke-width="4" stroke-dasharray="5 4"/>
             <line x1="273" y1="94" x2="273" y2="205" stroke="#f09a29" stroke-width="4" stroke-dasharray="5 4"/>
-
-            <!-- Grand Roof -->
             <polygon points="138,85 292,85 284,94 146,94" fill="#ffffff" stroke="#cfb692" stroke-width="1.5"/>
             <rect x="146" y="72" width="138" height="13" fill="#fdf8ef" stroke="#cfb692" stroke-width="1.5"/>
-            
-            <!-- Finials -->
             <path d="M160,72 L160,60 L165,54 L170,60 L170,72 Z" fill="#fffdf8" stroke="#c8ad85"/>
             <path d="M260,72 L260,60 L265,54 L270,60 L270,72 Z" fill="#fffdf8" stroke="#c8ad85"/>
             <circle cx="165" cy="52" r="2.5" fill="#d4a74a"/>
             <circle cx="265" cy="52" r="2.5" fill="#d4a74a"/>
-
-            <!-- Lush Floral Canopy Top -->
             <g>
               <circle cx="155" cy="88" r="7" fill="#c94b3b"/><circle cx="170" cy="86" r="8" fill="#f2a93b"/>
               <circle cx="185" cy="88" r="7" fill="#f7d6d0"/><circle cx="200" cy="86" r="8" fill="#c94b3b"/>
@@ -987,23 +940,18 @@
             </g>
           </g>
 
-          <!-- 6. FLORAL URNS AT BASE -->
           <g>
             <ellipse cx="135" cy="196" rx="15" ry="12" fill="#3d5932"/>
             <circle cx="128" cy="192" r="5" fill="#f4d0c8"/><circle cx="138" cy="190" r="5.5" fill="#a8242e"/>
             <circle cx="143" cy="198" r="4.5" fill="#f5b841"/>
             <path d="M126,205 L144,205 L141,218 L129,218 Z" fill="#c5963c"/>
-            
             <ellipse cx="295" cy="196" rx="15" ry="12" fill="#3d5932"/>
             <circle cx="288" cy="192" r="5" fill="#f4d0c8"/><circle cx="298" cy="190" r="5.5" fill="#a8242e"/>
             <circle cx="303" cy="198" r="4.5" fill="#f5b841"/>
             <path d="M286,205 L304,205 L301,218 L289,218 Z" fill="#c5963c"/>
           </g>
 
-          <!-- 7. GLASSY WATER POOL & REFLECTIONS -->
           <rect x="0" y="223" width="430" height="117" fill="url(#waterGrad)"/>
-          
-          <!-- Inverted Faded Mandap Reflection -->
           <g opacity="0.3">
             <rect x="165" y="225" width="100" height="50" fill="#f9d89c"/>
             <rect x="152" y="225" width="10" height="45" fill="#fffdfa"/>
@@ -1011,50 +959,35 @@
             <path d="M164,225 Q190,245 168,270 L156,270 Z" fill="#fdf1df"/>
             <path d="M266,225 Q240,245 262,270 L274,270 Z" fill="#fdf1df"/>
           </g>
-          <!-- Water Ripples -->
           <line x1="140" y1="245" x2="290" y2="245" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
           <line x1="160" y1="262" x2="270" y2="262" stroke="#fff2cc" stroke-width="1.5" opacity="0.5"/>
           <line x1="180" y1="280" x2="250" y2="280" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
 
-          <!-- 8. FOREGROUND LANTERNS, LOTUSES & DIYAS -->
           <g>
-            <!-- Left Foreground Lantern -->
             <circle cx="30" cy="240" r="30" fill="url(#sunGlow)"/>
             <rect x="18" y="220" width="24" height="34" rx="4" fill="#ffe699" stroke="#a87620" stroke-width="2"/>
             <polygon points="14,220 46,220 30,205" fill="#a87620"/>
             <line x1="30" y1="220" x2="30" y2="254" stroke="#a87620" stroke-width="1.5"/>
-            
-            <!-- Right Foreground Lantern -->
             <circle cx="400" cy="240" r="30" fill="url(#sunGlow)"/>
             <rect x="388" y="220" width="24" height="34" rx="4" fill="#ffe699" stroke="#a87620" stroke-width="2"/>
             <polygon points="384,220 416,220 400,205" fill="#a87620"/>
             <line x1="400" y1="220" x2="400" y2="254" stroke="#a87620" stroke-width="1.5"/>
-
-            <!-- Floating Brass Urli with Diya (Left) -->
             <ellipse cx="80" cy="275" rx="16" ry="6" fill="#9c6f22"/>
             <circle cx="80" cy="270" r="4" fill="#fff4a3"/>
             <path d="M78,270 Q80,265 82,270" fill="#ffaa00"/>
-
-            <!-- Floating Brass Urli with Diya (Right) -->
             <ellipse cx="350" cy="280" rx="16" ry="6" fill="#9c6f22"/>
             <circle cx="350" cy="275" r="4" fill="#fff4a3"/>
             <path d="M348,275 Q350,270 352,275" fill="#ffaa00"/>
-
-            <!-- Pink Floating Lotus (Center Left) -->
             <g transform="translate(140, 290)">
               <ellipse cx="0" cy="4" rx="15" ry="5" fill="#5e7a4f" opacity="0.6"/>
               <path d="M-12,3 Q-6,-10 0,3 Q6,-10 12,3 Z" fill="#f7b2c4"/>
               <path d="M-7,3 Q0,-12 7,3 Z" fill="#fce1e8"/>
             </g>
-
-            <!-- Pink Floating Lotus (Center Right) -->
             <g transform="translate(290, 295)">
               <ellipse cx="0" cy="4" rx="15" ry="5" fill="#5e7a4f" opacity="0.6"/>
               <path d="M-12,3 Q-6,-10 0,3 Q6,-10 12,3 Z" fill="#f7b2c4"/>
               <path d="M-7,3 Q0,-12 7,3 Z" fill="#fce1e8"/>
             </g>
-            
-            <!-- Small floating diyas in middle -->
             <g transform="translate(200, 310)">
               <ellipse cx="0" cy="2" rx="10" ry="3" fill="#a67521"/>
               <circle cx="0" cy="-1" r="3" fill="#fff3a1"/>
@@ -1075,7 +1008,6 @@
     <!-- ==================== 3. 3D UNROLLING BRIDE & GROOM SCROLLS ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 1: वधू (Only प्रियंका) -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1099,7 +1031,6 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- Scroll 2: वर (Groom) -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1125,7 +1056,7 @@
 
     </section>
 
-    <!-- ==================== 4. INTERACTIVE "REVEAL THE DATE" SPINNER ==================== -->
+    <!-- ==================== 4. REVEAL THE DATE SLOT MACHINE ==================== -->
     <section class="date-reveal-section">
       <div class="lotus-header-ornament">⚜️ 🪷 ⚜️</div>
       <div style="font-size: 0.85rem; letter-spacing: 1.5px; color: var(--maroon); font-weight: 700; margin-bottom: 4px;">
@@ -1159,20 +1090,18 @@
       </div>
     </section>
 
-    <!-- ==================== 5. HANGING PHOTO POLAROIDS ON RED STRING ==================== -->
+    <!-- ==================== 5. HANGING PHOTO FRAMES ON RED STRING ==================== -->
     <section class="memories-section">
       <div class="lotus-header-ornament" style="font-size: 1.5rem;">🌸 🌿 🌸</div>
       <h2 class="memories-title">स्नेहाचे सुंदर क्षण</h2>
       <div class="swipe-hint">← फोटो पाहण्यासाठी स्वाइप करा →</div>
 
       <div class="clothesline-track">
-        <!-- Frame 1: Couple Staircase Photo 1 -->
         <div class="hanging-frame">
           <img src="1000682458.jpg" alt="Priyanka and Kaustubh" class="frame-photo">
           <div class="frame-caption">प्रियंका आणि कौस्तुभ ✨</div>
         </div>
 
-        <!-- Frame 2: Romantic Quote Card -->
         <div class="hanging-frame">
           <div class="quote-frame-card">
             “नियतीने बांधली दोन मनाची गाठ, विश्वासाची सोबत अन् प्रेमाची वाट, प्रियंका आणि कौस्तुभ यांच्या शुभमिलनाने सुरू होते नव्या आयुष्याची सुंदर पहाट!”
@@ -1180,19 +1109,16 @@
           <div class="frame-caption">#PriyankaWedsKaustubh</div>
         </div>
 
-        <!-- Frame 3: Couple Staircase Close-up Photo 2 -->
         <div class="hanging-frame">
           <img src="1000682460.jpg" alt="Priyanka and Kaustubh Together" class="frame-photo">
           <div class="frame-caption">शुभमिलन 💫</div>
         </div>
 
-        <!-- Frame 4: Bride Solo Portrait -->
         <div class="hanging-frame">
           <img src="1000796104.jpg" alt="Chi. Sau. Kan. Priyanka" class="frame-photo">
           <div class="frame-caption">चि. सौ. कां. प्रियंका 🌸</div>
         </div>
 
-        <!-- Frame 5: Groom Solo Portrait -->
         <div class="hanging-frame">
           <img src="1000672483.jpg" alt="Chi. Kaustubh" class="frame-photo">
           <div class="frame-caption">चि. कौस्तुभ 🤵</div>
@@ -1200,13 +1126,12 @@
       </div>
     </section>
 
-    <!-- ==================== 6. ARCHED MAROON WEDDING & BHOJ CARD ==================== -->
+    <!-- ==================== 6. ARCHED MAROON WEDDING SECTION ==================== -->
     <section class="vivaah-maroon-section">
       <h2 style="font-family: 'Rozha One', serif; font-size: 2rem; color: var(--gold-bright); margin: 0 0 18px;">
         विवाह मुहूर्त व स्थळ
       </h2>
 
-      <!-- Arch Card: Only शुभविवाह -->
       <div class="scallop-arch-card">
         <div style="font-size: 2.4rem;">👰‍♀️🤵‍♂️</div>
         <div class="arch-card-title">शुभविवाह</div>
@@ -1234,7 +1159,6 @@
     <!-- ==================== 7. UNROLLING FAMILY SCROLLS ==================== -->
     <section class="scroll-section">
 
-      <!-- Scroll 3: आपले कृपाभिलाषी -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1264,7 +1188,6 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- Scroll 4: Kids Invite (Line Removed & Names Corrected to ईशान, ओजस) -->
       <div class="royal-scroll observe-scroll" onclick="this.classList.add('unrolled')">
         <div class="scroll-roller"></div>
         <div class="scroll-body-wrapper">
@@ -1285,7 +1208,6 @@
         <div class="scroll-roller"></div>
       </div>
 
-      <!-- 3 Quick Action Icons -->
       <div class="action-icons-row">
         <div class="action-circle" onclick="openInstaModal()" title="Hashtag">📷</div>
         <a class="action-circle" href="https://www.google.com/maps/search/?api=1&query=Vasavi+Celebration+Hall+Alapalli+Road+Aheri" target="_blank" title="Venue Map">📍</a>
@@ -1324,7 +1246,7 @@
   <script>
     let ytPlayer;
     let isPlaying = false;
-    let curtainsOpened = false;
+    let gateOpened = false;
     let ytReady = false;
     let pendingPlay = false;
 
@@ -1364,15 +1286,13 @@
       ytPlayer.playVideo();
     }
 
-    // 1. Open Maroon Curtains & Start Song
-    function openCurtains() {
-      const overlay = document.getElementById('curtain-overlay');
+    function openGate() {
+      const overlay = document.getElementById('gate-overlay');
       overlay.classList.add('opened');
       playMusic();
 
-      // Enable mid-screen scroll unrolling after curtains start parting
       setTimeout(() => {
-        curtainsOpened = true;
+        gateOpened = true;
         checkScrollsMidScreen();
       }, 950);
     }
@@ -1393,10 +1313,9 @@
       document.getElementById('musicToggleBtn').textContent = isPlaying ? '🎵' : '🔇';
     }
 
-    // 2. Unroll 3D Royal Scrolls ONLY when they reach the MIDDLE of the screen
     let scrollTicking = false;
     function checkScrollsMidScreen() {
-      if (!curtainsOpened) return;
+      if (!gateOpened) return;
       const midScreenY = window.innerHeight * 0.52;
       const reachedBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 40);
 
@@ -1418,7 +1337,6 @@
       }
     }, { passive: true });
 
-    // 3. "Reveal the Date" Slot Spinner (04 JAN 2027)
     let dateRevealed = false;
     function spinAndRevealDate() {
       if (dateRevealed) return;
@@ -1458,7 +1376,6 @@
       }, 1300);
     }
 
-    // 4. Instagram Modal
     function openInstaModal() {
       const modal = document.getElementById('instaModal');
       modal.classList.add('active');
